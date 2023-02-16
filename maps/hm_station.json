@@ -867,7 +867,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/public\/customStationSign\/web_station_sign.html"
+                         "value":".\/customStationSign\/web_station_sign.html"
                         }],
                  "rotation":0,
                  "visible":true,
