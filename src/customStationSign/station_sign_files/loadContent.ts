@@ -1,6 +1,7 @@
 //import content json interface (to avoid ts errors)
 import {Root} from "./interface-declaration";
 
+(async() => { 
 //load json
 var content: Root = await fetch("./station_sign_files/content.json").then((response) => { 
     return response.json().then((data) => {
@@ -8,6 +9,14 @@ var content: Root = await fetch("./station_sign_files/content.json").then((respo
         })
     }
 );
+
+//load json
+var content: Root = await fetch("./station_sign_files/content.json").then((response) => { 
+    return response.json().then((data) => {
+        return data
+        })
+    }
+)
 
 //load links in title bar for each link in json
 //append db logo in the end
@@ -104,5 +113,7 @@ if(content.tafel.misc.unterschrift != ""){
     additionalText.innerHTML = content.tafel.misc.unterschrift;
     document.getElementById("additionalTextContainer")?.appendChild(additionalText);
 }
+
+;})().catch(e => console.error(e));
 
 export {};
