@@ -8,14 +8,6 @@ var content: Root = await fetch("./station_sign_files/content.json").then((respo
         return data
         })
     }
-);
-
-//load json
-var content: Root = await fetch("./station_sign_files/content.json").then((response) => { 
-    return response.json().then((data) => {
-        return data
-        })
-    }
 )
 
 //load links in title bar for each link in json
