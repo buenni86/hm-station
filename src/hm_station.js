@@ -117,4 +117,87 @@ WA.room.onEnterLayer(layerMeetUs).subscribe(() => {
                  closePopUp();
              })
          }]);
- })
+})
+
+/*
+ *  Hiding Layers ....
+ */
+
+var layerICE1roof = "trains_top/ice1_roof";
+var layerICE1maul = "trains_top/ice1_maul";
+var layerICE2roof = "trains_top/ice2_roof";
+var layerICE2maul = "trains_top/ice2_maul";
+var layerICE3roof = "trains_top/ice3_roof";
+var layerICE3maul = "trains_top/ice3_maul";
+var layerICE4roof = "trains_top/ice4_roof";
+var layerICE4maul = "trains_top/ice4_maul";
+var layerRegio1roof = "trains_top/regio1_roof";
+var layerRegio1maul = "trains_top/regio1_maul";
+var layerRegio2roof = "trains_top/regio2_roof";
+var layerRegio2maul = "trains_top/regio2_maul";
+var hidelayerICE1 = "specialZones/ICEs/hideICE1";
+var hidelayerICE2 = "specialZones/ICEs/hideICE2";
+var hidelayerICE3 = "specialZones/ICEs/hideICE3";
+var hidelayerICE4 = "specialZones/ICEs/hideICE4";
+var hidelayerRegio1 = "specialZones/ICEs/hideRegio1";
+var hidelayerRegio2 = "specialZones/ICEs/hideRegio2";
+
+WA.room.onLeaveLayer(hidelayerICE1).subscribe(() => {
+    WA.room.showLayer(layerICE1roof);
+    WA.room.hideLayer(layerICE1maul);
+})
+ 
+WA.room.onEnterLayer(hidelayerICE1).subscribe(() => {
+    WA.room.hideLayer(layerICE1roof);
+    WA.room.showLayer(layerICE1maul);
+})
+
+WA.room.onLeaveLayer(hidelayerICE2).subscribe(() => {
+    WA.room.showLayer(layerICE2roof);
+    WA.room.hideLayer(layerICE2maul);
+})
+ 
+WA.room.onEnterLayer(hidelayerICE2).subscribe(() => {
+    WA.room.hideLayer(layerICE2roof);
+    WA.room.showLayer(layerICE2maul);
+})
+
+WA.room.onLeaveLayer(hidelayerICE3).subscribe(() => {
+    WA.room.showLayer(layerICE3roof);
+    WA.room.hideLayer(layerICE3maul);
+})
+ 
+WA.room.onEnterLayer(hidelayerICE3).subscribe(() => {
+    WA.room.hideLayer(layerICE3roof);
+    WA.room.showLayer(layerICE3maul);
+})
+
+WA.room.onLeaveLayer(hidelayerICE4).subscribe(() => {
+    WA.room.showLayer(layerICE4roof);
+    WA.room.hideLayer(layerICE4maul);
+})
+ 
+WA.room.onEnterLayer(hidelayerICE4).subscribe(() => {
+    WA.room.hideLayer(layerICE4roof);
+    WA.room.showLayer(layerICE4maul);
+})
+
+WA.room.onLeaveLayer(hidelayerRegio1).subscribe(() => {
+    WA.room.showLayer(layerRegio1roof);
+    WA.room.hideLayer(layerRegio1maul);
+})
+ 
+WA.room.onEnterLayer(hidelayerRegio1).subscribe(() => {
+    WA.room.hideLayer(layerRegio1roof);
+    WA.room.showLayer(layerRegio1maul);
+})
+
+WA.room.onLeaveLayer(hidelayerRegio2).subscribe(() => {
+    WA.room.showLayer(layerRegio2roof);
+    WA.room.hideLayer(layerRegio2maul);
+})
+ 
+WA.room.onEnterLayer(hidelayerRegio2).subscribe(() => {
+    WA.room.hideLayer(layerRegio2roof);
+    WA.room.showLayer(layerRegio2maul);
+})
