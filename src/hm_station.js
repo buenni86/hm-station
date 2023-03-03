@@ -15,7 +15,7 @@ var popUpJobs2 = "jobs_2";
 var msgJobs = "Finde die passende Einstiegsmöglichkeit für dich";
 var labelJobs = "Jobs anzeigen";
 var urlJobs = "https://db.jobs/service/search/de-de/5441588?qli=true&query=&itemsPerPage=10&pageNum=0&positiontype=Ausbildung&positiontype=Duales+Studium";
-
+                
 var layerJobProfiler = "popUpJobProfiler";
 var popUpJobProfiler = "jobProfiler";
 var msgJobProfiler = "Du weißt noch nicht, wohin es gehen soll?";
@@ -27,6 +27,38 @@ var popUpMeetUs = "meetUs";
 var msgMeetUs = "Lerne uns persönlich kennen";
 var labelMeetUs = "Meet Us";
 var urlMeetUs= "https://db.jobs/service/search/de-de/9639412?qli=true&query=&itemsPerPage=10&pageNum=0&positiontype=Ausbildung&positiontype=Duales+Studium";
+
+var layerDoVoting = "popUpDoVoting";
+var popUpDoVoting = "doVoting";
+var msgDoVoting = "Möchtest du am Voting teilnehmen und weitere interessante Dinge über die DB als Arbeitgeber erfahren?";
+var labelDo = "Ja!";
+var labelDont = "Kein Interesse";
+
+var layerImportance = "popUpImportance";
+var popUpImportance = "importance";
+var msgImportance = "Willkommen beim Voting. Lass uns direkt loslegen:\n\nWas ist dir wichtig?\n\nSpringe in das jeweilige Portal, um deine Stimme abzugeben.";
+
+var layerImportanceResult = "popUpImportanceResult";
+var popUpImportanceResult = "importanceResult";
+var msgImportanceResult = "Na? Ist dir die Entscheidung schwer gefallen?\n\nZum Glück musst du dich bei uns nicht für eine der Optionen entscheiden. Du bekommst sie alle!";
+var labelCool = "Cool!";
+
+var layerJobLocation = "popUpJobLocation";
+var popUpJobLocation = "jobLocation";
+var msgJobLocation = "Wo möchtest du am liebsten arbeiten?\n\nGehe zum jeweiligen Ort, um deine Stimme abzugeben.";
+
+var layerJobLocationResult = "popUpJobLocationResult";
+var popUpJobLocationResult = "jobLocationResult";
+var msgJobLocationResult = "Bei uns kannst du jedem der Bereiche einstiegen. Schau dich doch einfach mal um:";
+var labelShowJobs = "Zeig mir die Jobs!";
+var urlJobs2 = "https://db.jobs/service/search/de-de/7707604?qli=true&query=&itemsPerPage=10&pageNum=0&country=Deutschland&positiontype=Ausbildung&positiontype=Duales+Studium"
+
+function closePopUp(){
+    if (currentPopup !== undefined) {
+        currentPopup.close();
+        currentPopup = undefined;
+    }
+}
 
 WA.room.onLeaveLayer(layerJobs1).subscribe(() => {
     closePopUp();
@@ -112,6 +144,91 @@ WA.room.onEnterLayer(layerMeetUs).subscribe(() => {
          }]);
 })
 
+WA.room.onLeaveLayer(layerDoVoting).subscribe(() => {
+    closePopUp();
+})
+ 
+WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
+        {
+            label: labelDo,
+            callback: (popup => {
+                // transfer woka into voting area
+                // remember woka on list for already voted wokas
+                closePopUp();
+            })
+        },
+        {
+            label: labelDont,
+            callback: (popup => {
+                closePopUp();
+            })
+        }]);
+})
+
+WA.room.onLeaveLayer(layerImportance).subscribe(() => {
+    closePopUp();
+})
+ 
+WA.room.onEnterLayer(layerImportance).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpImportance, msgImportance,[
+        {
+            label: labelClose,
+            callback: (popup => {
+                closePopUp();
+            })
+        }]);
+})
+
+WA.room.onLeaveLayer(layerImportanceResult).subscribe(() => {
+    closePopUp();
+})
+ 
+WA.room.onEnterLayer(layerImportanceResult).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpImportanceResult, msgImportanceResult,[
+        {
+            label: labelCool,
+            callback: (popup => {
+                closePopUp();
+            })
+        }]);
+})
+
+WA.room.onLeaveLayer(layerJobLocation).subscribe(() => {
+    closePopUp();
+})
+ 
+WA.room.onEnterLayer(layerJobLocation).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpJobLocation, msgJobLocation,[
+        {
+            label: labelClose,
+            callback: (popup => {
+                closePopUp();
+            })
+        }]);
+})
+
+WA.room.onLeaveLayer(layerJobLocationResult).subscribe(() => {
+    closePopUp();
+})
+ 
+WA.room.onEnterLayer(layerJobLocationResult).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpJobLocationResult, msgJobLocationResult,[
+        {
+            label: labelShowJobs,
+            callback: (popup => {
+                WA.nav.openTab(urlJobs2);
+                closePopUp();
+            })
+        },
+        {
+            label: labelClose,
+            callback: (popup => {
+                closePopUp();
+            })
+        }]);
+})
+
 /*
  *  Hiding Layers ....
  */
@@ -194,3 +311,81 @@ WA.room.onEnterLayer(hidelayerRegio2).subscribe(() => {
     WA.room.hideLayer(layerRegio2roof);
     WA.room.showLayer(layerRegio2maul);
 })
+
+/*
+ *  Voting
+ */
+
+const buttons = [
+    {
+      label: "Reset",
+      className: "error",
+      callback: () =>
+        (WA.state.voteAcq = WA.state.voteMoney = WA.state.voteTicket = 0)
+    }
+]
+
+WA.onInit().then(async () => {
+    var layerVoteAcq = "specialZones/voting/acquisitionVoting";
+    var labelVoteAcq = "voteAcquisiton";
+    var layerVoteMoney = "specialZones/voting/moneyVoting";
+    var labelVoteMoney = "voteMoney";
+    var layerVoteTicket = "specialZones/voting/ticketVoting";
+    var labelVoteTicket = "voteTicket";
+
+    var layerReset = "specialZones/voteReset";
+
+    console.log("Scripting API ready")
+    console.log("Player tags: ", WA.player.tags)
+
+    WA.room.onEnterLayer(layerVoteAcq).subscribe(() => {
+        console.log(labelVoteAcq, WA.state.voteAcquisition)
+        WA.state.voteAcquisition++
+    })
+    
+    WA.room.onLeaveLayer(layerVoteAcq).subscribe(() => {
+        console.log(labelVoteAcq, WA.state.voteAcquisition)
+        if (WA.state.voteAcquisition === 0) return
+    })
+
+    WA.room.onEnterLayer(layerVoteMoney).subscribe(() => {
+        console.log(labelVoteMoney, WA.state.voteMoney)
+        WA.state.voteMoney++
+    })
+    
+    WA.room.onLeaveLayer(layerVoteMoney).subscribe(() => {
+        console.log(labelVoteMoney, WA.state.voteMoney)
+        if (WA.state.voteMoney === 0) return
+    })
+
+    WA.room.onEnterLayer(layerVoteTicket).subscribe(() => {
+        console.log(labelVoteTicket, WA.state.voteTicket)
+        WA.state.voteTicket++
+    })
+    WA.room.onLeaveLayer(layerVoteTicket).subscribe(() => {
+        console.log(labelVoteTicket, WA.state.voteTicket)
+        if (WA.state.voteTicket === 0) return
+    })
+
+    let voteResetPopup;
+    WA.room.onEnterLayer(layerReset).subscribe(() => {
+        if(WA.player.tags.includes("editor")||WA.player.tags.includes("admin")||WA.player.tags.includes("hm-station-admin")) {
+        voteResetPopup = WA.ui.openPopup(
+        "resetPopup",
+        "Soll das Voting zurückgesetzt werden?",
+        buttons
+        )
+        }
+    })
+    WA.room.onLeaveLayer(layerReset).subscribe(() => {
+        voteResetPopup.close()
+    })
+        
+
+    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
+    bootstrapExtra()
+    .then(() => {
+        console.log("Scripting API Extra ready")
+        
+    }).catch(e => console.error(e))
+}).catch(e => console.error(e))
