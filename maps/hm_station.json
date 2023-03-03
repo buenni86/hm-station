@@ -3844,7 +3844,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"\/worldmap.html"
+                         "value":"..\/src\/worldmap.html"
                         }, 
                         {
                          "name":"openWebsiteTrigger",
