@@ -27,13 +27,6 @@ var popUpMeetUs = "meetUs";
 var msgMeetUs = "Lerne uns persönlich kennen";
 var labelMeetUs = "Meet Us";
 var urlMeetUs= "https://db.jobs/service/search/de-de/9639412?qli=true&query=&itemsPerPage=10&pageNum=0&positiontype=Ausbildung&positiontype=Duales+Studium";
-		
-function closePopUp(){
-    if (currentPopup !== undefined) {
-        currentPopup.close();
-        currentPopup = undefined;
-    }
-}
 
 WA.room.onLeaveLayer(layerJobs1).subscribe(() => {
     closePopUp();
