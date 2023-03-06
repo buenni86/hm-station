@@ -8,8 +8,8 @@ export default defineConfig({
             input: {
                 index: "./index.html",
                 web_station_sign: "./src/customStationSign/web_station_sign.html",
-                result_importance: "./public/result_importance.html",
-                result_location: "./public/result_location.html",
+                result_importance: "/result_importance.html",
+                result_location: "/result_location.html",
                 worldmap: "./src/worldmap.html",
                 ...getMapsScripts("./maps"),
             },
