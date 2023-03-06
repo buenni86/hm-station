@@ -230,7 +230,73 @@ WA.room.onEnterLayer(layerJobLocationResult).subscribe(() => {
 })
 
 /*
- *  Hiding Layers ....
+ *  Hiding Layers .... voting roof
+ */
+
+var roofLayer1 = "voting_top_closed/room1";
+var roofLayer2 = "voting_top_closed/room2";
+var roofLayer3 = "voting_top_closed/room3";
+var roofLayer4 = "voting_top_closed/room4";
+var openRoofLayer1 = "voting_top_opened/room1";
+var openRoofLayer2 = "voting_top_opened/room2";
+var openRoofLayer3 = "voting_top_opened/room3";
+var openRoofLayer4 = "voting_top_opened/room4";
+var hideLayerRoof1 = "specialZones/voting/remove_roofs/roof1";
+var hideLayerRoof2 = "specialZones/voting/remove_roofs/roof2";
+var hideLayerRoof3 = "specialZones/voting/remove_roofs/roof3";
+var hideLayerRoof4 = "specialZones/voting/remove_roofs/roof4";
+
+WA.room.onLeaveLayer(hideLayerRoof1).subscribe(() => {
+    WA.room.showLayer(roofLayer1);
+    WA.room.hideLayer(openRoofLayer1);
+})
+ 
+WA.room.onEnterLayer(hideLayerRoof1).subscribe(() => {
+    WA.room.hideLayer(roofLayer1);
+    WA.room.showLayer(openRoofLayer1);
+})
+
+WA.room.onLeaveLayer(hideLayerRoof2).subscribe(() => {
+    WA.room.showLayer(roofLayer2);
+    WA.room.hideLayer(openRoofLayer2);
+})
+ 
+WA.room.onEnterLayer(hideLayerRoof2).subscribe(() => {
+    WA.room.showLayer(roofLayer1);
+    WA.room.hideLayer(openRoofLayer1);
+
+    WA.room.hideLayer(roofLayer2);
+    WA.room.showLayer(openRoofLayer2);
+})
+
+WA.room.onLeaveLayer(hideLayerRoof3).subscribe(() => {
+    WA.room.showLayer(roofLayer3);
+    WA.room.hideLayer(openRoofLayer3);
+})
+ 
+WA.room.onEnterLayer(hideLayerRoof3).subscribe(() => {
+    WA.room.showLayer(roofLayer2);
+    WA.room.hideLayer(openRoofLayer2);
+
+    WA.room.hideLayer(roofLayer3);
+    WA.room.showLayer(openRoofLayer3);
+})
+
+WA.room.onLeaveLayer(hideLayerRoof4).subscribe(() => {
+    WA.room.showLayer(roofLayer4);
+    WA.room.hideLayer(openRoofLayer4);
+})
+ 
+WA.room.onEnterLayer(hideLayerRoof4).subscribe(() => {
+    WA.room.showLayer(roofLayer3);
+    WA.room.hideLayer(openRoofLayer3);
+
+    WA.room.hideLayer(roofLayer4);
+    WA.room.showLayer(openRoofLayer4);
+})
+
+/*
+ *  Hiding Layers .... ICE
  */
 
 var layerICE1roof = "trains_top/ice1_roof";
