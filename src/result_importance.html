@@ -102,15 +102,14 @@
         var voteTicket = "voteTicket";
 
         WA.onInit().then(() => {
-			//updatePoll(WA.state.votePos, WA.state.voteNeg, WA.state.voteNeut);
-            updatePoll(WA.state.voteAcquisition, WA.state.voteNeg, WA.state.voteNeut);
-            WA.state.onVariableChange('voteAcquisition').subscribe((newValue) => {
+            updatePoll(WA.state.voteAcquisition, WA.state.voteMoney, WA.state.voteTicket);
+            WA.state.onVariableChange(voteAcq).subscribe((newValue) => {
                 updatePoll(newValue, voteB, voteC)
             });
             WA.state.onVariableChange(voteMoney).subscribe((newValue) => {
                  updatePoll(voteA, newValue, voteC)
             });
-            WA.state.onVariableChange('voteTicket').subscribe((newValue) => {
+            WA.state.onVariableChange(voteTicket).subscribe((newValue) => {
                 updatePoll(voteA, voteB, newValue)
             });
         });
@@ -141,7 +140,7 @@
     <div class="poll-results">
         <div class="poll-header">
             <div>
-                <strong class="poll-question">Poll results</strong> <span>(<span id="totalVotes">0</span> votes)</span>
+                <strong class="poll-question">Ergebnisse Wunschbenefits</strong> <span>(<span id="totalVotes">0</span> votes)</span>
             </div>
         </div>
         <ol class="poll-result-list">
