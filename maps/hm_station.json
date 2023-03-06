@@ -5263,7 +5263,7 @@
                         {
                          "name":"url",
                          "type":"string",
-                         "value":"\/result.html"
+                         "value":"\/result_importance.html"
                         }],
                  "rotation":0,
                  "visible":true,
