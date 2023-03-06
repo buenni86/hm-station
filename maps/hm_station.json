@@ -5263,7 +5263,7 @@
                         {
                          "name":"url",
                          "type":"string",
-                         "value":"\/result_importance.html"
+                         "value":"..\/src\/result_importance.html"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -7674,7 +7674,7 @@
         {
          "name":"mapImage",
          "type":"string",
-         "value":"hm_station.png"
+         "value":".\/maps\/hm_station.png"
         }, 
         {
          "name":"mapName",
