@@ -95,45 +95,53 @@
     <script>
         /// <reference path="../node_modules/@workadventure/iframe-api-typings/iframe_api.d.ts" />
 
-        let voteA, voteB, voteC, totalVotes;
+        let voteA, voteB, voteC, voteD, totalVotes;
 
-        var voteAcq = "voteAcquisition";
-        var voteMoney = "voteMoney";
-        var voteTicket = "voteTicket";
+        var voteWs = "voteWorkshop";
+        var voteOut = "voteOutside";
+        var voteTrain = "voteTrain";
+        var voteOffice = "voteOffice";
 
         WA.onInit().then(() => {
 			//updatePoll(WA.state.votePos, WA.state.voteNeg, WA.state.voteNeut);
-            updatePoll(WA.state.voteAcquisition, WA.state.voteNeg, WA.state.voteNeut);
-            WA.state.onVariableChange('voteAcquisition').subscribe((newValue) => {
-                updatePoll(newValue, voteB, voteC)
+            updatePoll(WA.state.voteWorkshop, WA.state.voteOutside, WA.state.voteTrain, WA.state.voteOffice);
+            WA.state.onVariableChange(voteWs).subscribe((newValue) => {
+                updatePoll(newValue, voteB, voteC, voteD)
             });
-            WA.state.onVariableChange(voteMoney).subscribe((newValue) => {
-                 updatePoll(voteA, newValue, voteC)
+            WA.state.onVariableChange(voteOut).subscribe((newValue) => {
+                 updatePoll(voteA, newValue, voteC, voteD)
             });
-            WA.state.onVariableChange('voteTicket').subscribe((newValue) => {
-                updatePoll(voteA, voteB, newValue)
+            WA.state.onVariableChange(voteTrain).subscribe((newValue) => {
+                updatePoll(voteA, voteB, newValue, voteD)
+            });
+            WA.state.onVariableChange(voteOffice).subscribe((newValue) => {
+                updatePoll(voteA, voteB, voteC, newValue)
             });
         });
 
-        function updatePoll(newVoteA = 0, newVoteB = 0, newVoteC = 0) {
+        function updatePoll(newVoteA = 0, newVoteB = 0, newVoteC = 0, newVoteD = 0) {
             voteA = newVoteA;
             voteB = newVoteB;
             voteC = newVoteC;
+            voteD = newVoteD;
 
-            totalVotes = voteA + voteB + voteC;
+            totalVotes = voteA + voteB + voteC + voteD;
 
             document.getElementById("voteA").innerHTML = totalVotes > 0 ? voteA : 0;
             document.getElementById("voteB").innerHTML = totalVotes > 0 ? voteB : 0;
             document.getElementById("voteC").innerHTML = totalVotes > 0 ? voteC : 0;
+            document.getElementById("voteD").innerHTML = totalVotes > 0 ? voteD : 0;
             document.getElementById("totalVotes").innerHTML = totalVotes > 0 ? totalVotes : 0;
 
             let percentageVoteA = totalVotes > 0 ? parseInt(voteA / totalVotes * 100) + "%" : "0%";
             let percentageVoteB = totalVotes > 0 ? parseInt(voteB / totalVotes * 100) + "%" : "0%";
             let percentageVoteC = totalVotes > 0 ? parseInt(voteC / totalVotes * 100) + "%" : "0%";
+            let percentageVoteD = totalVotes > 0 ? parseInt(voteD / totalVotes * 100) + "%" : "0%";
 
             document.getElementById("percentageVoteA").innerHTML = document.getElementById("poll-bar-vote-a").style.width = percentageVoteA;
             document.getElementById("percentageVoteB").innerHTML = document.getElementById("poll-bar-vote-b").style.width = percentageVoteB;
             document.getElementById("percentageVoteC").innerHTML = document.getElementById("poll-bar-vote-c").style.width = percentageVoteC;
+            document.getElementById("percentageVoteD").innerHTML = document.getElementById("poll-bar-vote-d").style.width = percentageVoteD;
         }
     </script>
 </head>
@@ -141,12 +149,12 @@
     <div class="poll-results">
         <div class="poll-header">
             <div>
-                <strong class="poll-question">Poll results</strong> <span>(<span id="totalVotes">0</span> votes)</span>
+                <strong class="poll-question">Ergebnisse Wunscharbeitsplatz</strong> <span>(<span id="totalVotes">0</span> votes)</span>
             </div>
         </div>
         <ol class="poll-result-list">
             <li>
-                <div class="poll-answer-header"><span class="poll-answer-vote-name">🤝</span></div>
+                <div class="poll-answer-header"><span class="poll-answer-vote-name">🔧</span></div>
                 <div class="poll-answer-short-results">
                     <span class="poll-bar-container"><div class="poll-bar" id="poll-bar-vote-a" style="width: 0%;"></div></span>
                     <div class="poll-answer-vote-count-container">
@@ -155,7 +163,7 @@
                 </div>
             </li>
             <li>
-                <div class="poll-answer-header"><span class="poll-answer-vote-name">💰</span></div>
+                <div class="poll-answer-header"><span class="poll-answer-vote-name">🌳</span></div>
                 <div class="poll-answer-short-results">
                     <span class="poll-bar-container"><div class="poll-bar" id="poll-bar-vote-b" style="width: 0%;"></div></span>
                     <div class="poll-answer-vote-count-container">
@@ -165,6 +173,15 @@
             </li>
             <li>
                 <div class="poll-answer-header"><span class="poll-answer-vote-name">🚆</span></div>
+                <div class="poll-answer-short-results">
+                    <span class="poll-bar-container"><div class="poll-bar" id="poll-bar-vote-c" style="width: 0%;"></div></span>
+                    <div class="poll-answer-vote-count-container">
+                        <span class="poll-answer-vote-count">(<span id="voteC">0</span>) <span id="percentageVoteC">0%</span></span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="poll-answer-header"><span class="poll-answer-vote-name">🏤</span></div>
                 <div class="poll-answer-short-results">
                     <span class="poll-bar-container"><div class="poll-bar" id="poll-bar-vote-c" style="width: 0%;"></div></span>
                     <div class="poll-answer-vote-count-container">
