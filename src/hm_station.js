@@ -259,7 +259,7 @@ const buttons = [
       label: "Reset",
       className: "error",
       callback: () =>
-        (WA.state.votePos = WA.state.voteNeg = WA.state.voteNeut = WA.state.voteOffice = WA.state.voteOutside = WA.state.voteWorkshop = WA.state.voteTrain = 0)
+        (WA.state.voteMoney = WA.state.voteAcquisition = WA.state.voteTicket = WA.state.voteOffice = WA.state.voteOutside = WA.state.voteWorkshop = WA.state.voteTrain = 0)
     }
 ]
 
