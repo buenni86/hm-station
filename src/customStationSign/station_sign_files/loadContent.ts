@@ -89,6 +89,7 @@ for (let row of content.tafel.content) {
     let a = document.createElement("a");
     a.classList.add("trackLink");
     a.setAttribute("href",row.eintrag.col3.to);
+    a.setAttribute("target","_blank")
     a.innerHTML = row.eintrag.col3.title;
  //   titleBarRight.appendChild(a);
     
