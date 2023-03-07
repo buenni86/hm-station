@@ -1,6 +1,6 @@
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
-bootstrapExtra();
+//bootstrapExtra();
 console.log('Script started successfully');
 
 var currentPopup = undefined;
