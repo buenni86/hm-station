@@ -5551,8 +5551,8 @@
                  "rotation":0,
                  "visible":true,
                  "width":225.64,
-                 "x":2836.51333333333,
-                 "y":444.5
+                 "x":3046.51333333333,
+                 "y":478.5
                 }, 
                 {
                  "class":"",
@@ -5578,14 +5578,14 @@
                 }, 
                 {
                  "class":"",
-                 "height":246.939393939394,
+                 "height":102.939393939394,
                  "id":68,
                  "name":"importanceResult",
                  "rotation":0,
                  "visible":true,
                  "width":288.912393939394,
-                 "x":3544.93774242424,
-                 "y":581.075757575758
+                 "x":3550.93774242424,
+                 "y":685.075757575758
                 }, 
                 {
                  "class":"",
@@ -8218,7 +8218,7 @@
          "name":"voting_top_closed",
          "opacity":1,
          "type":"group",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 

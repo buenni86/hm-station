@@ -332,7 +332,7 @@ const buttons = [
       label: "Reset",
       className: "error",
       callback: () =>
-        (WA.state.voteAcq = WA.state.voteMoney = WA.state.voteTicket = 0)
+        (WA.state.votePos = WA.state.voteNeg = WA.state.voteNeut = WA.state.voteOffice = WA.state.voteOutside = WA.state.voteWorkshop = WA.state.voteTrain = 0)
     }
 ]
 
@@ -356,8 +356,6 @@ WA.onInit().then(async () => {
 
     console.log("Scripting API ready")
     console.log("Player tags: ", WA.player.tags)
-
-    //Hidings...
 
     WA.room.onEnterLayer(layerVoteAcq).subscribe(() => {
         console.log(labelVoteAcq, WA.state.voteAcquisition)
@@ -427,11 +425,10 @@ WA.onInit().then(async () => {
     let voteResetPopup;
     WA.room.onEnterLayer(layerReset).subscribe(() => {
         if(WA.player.tags.includes("editor")||WA.player.tags.includes("admin")||WA.player.tags.includes("hm-station-admin")) {
-        voteResetPopup = WA.ui.openPopup(
-        "resetPopup",
-        "Soll das Voting zurückgesetzt werden?",
-        buttons
-        )
+            voteResetPopup = WA.ui.openPopup(
+            "resetPopup",
+            "Soll das Voting zurückgesetzt werden?",
+            buttons)
         }
     })
     WA.room.onLeaveLayer(layerReset).subscribe(() => {
@@ -445,7 +442,7 @@ WA.onInit().then(async () => {
     })
      
     WA.room.onEnterLayer(layerImportance).subscribe(() => {
-        if (currentPopup) closePopUp();
+        if (currentPopup != null) closePopUp();
 
         currentPopup =  WA.ui.openPopup(popUpImportance, msgImportance,[
             {
@@ -461,7 +458,7 @@ WA.onInit().then(async () => {
     })
      
     WA.room.onEnterLayer(layerImportanceResult).subscribe(() => {
-        if (currentPopup) closePopUp();
+        if (currentPopup != null) closePopUp();
 
         currentPopup =  WA.ui.openPopup(popUpImportanceResult, msgImportanceResult,[
             {
@@ -477,7 +474,7 @@ WA.onInit().then(async () => {
     })
      
     WA.room.onEnterLayer(layerJobLocation).subscribe(() => {
-        if (currentPopup) closePopUp();
+        if (currentPopup != null) closePopUp();
 
         currentPopup =  WA.ui.openPopup(popUpJobLocation, msgJobLocation,[
             {
@@ -493,7 +490,7 @@ WA.onInit().then(async () => {
     })
      
     WA.room.onEnterLayer(layerJobLocationResult).subscribe(() => {
-        if (currentPopup) closePopUp();
+        if (currentPopup != null) closePopUp();
 
         currentPopup =  WA.ui.openPopup(popUpJobLocationResult, msgJobLocationResult,[
             {
