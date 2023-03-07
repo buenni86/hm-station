@@ -30,7 +30,7 @@ document.getElementById("tafelHeader")!.innerHTML = content.tafel.misc.header;
 document.getElementById("col1")!.innerHTML = content.tafel.misc.gelbeLeiste.col1
 document.getElementById("col2")!.innerHTML = content.tafel.misc.gelbeLeiste.col2
 document.getElementById("col3")!.innerHTML = content.tafel.misc.gelbeLeiste.col3
-document.getElementById("col4")!.innerHTML = content.tafel.misc.gelbeLeiste.col4
+//document.getElementById("col4")!.innerHTML = content.tafel.misc.gelbeLeiste.col4
 
 //load content into table
 const tbody = document.getElementById("tbody")!;
@@ -62,7 +62,7 @@ for (let row of content.tafel.content) {
     col2.appendChild(tofrom);
 
     //col3 
-    let col3 = document.createElement("td");
+/*    let col3 = document.createElement("td");
     let path = document.createElement("span");
     let pathContent = document.createElement("span");
     path.classList.add("path");
@@ -77,25 +77,33 @@ for (let row of content.tafel.content) {
     tripMSGContent.innerHTML = row.eintrag.col3.yellowText;
     tripMSG.appendChild(tripMSGContent);
     path.appendChild(tripMSG);
+*/
 
-    //col4
-    let col4 = document.createElement("td");
+    //col3
+    let col3 = document.createElement("td");
     let platform = document.createElement("span");
     let platformContent = document.createElement("span");
     platform.classList.add("platform");
     platformContent.classList.add("additionalStyling");
-    platformContent.innerHTML = row.eintrag.col4;
-    platform.appendChild(platformContent);
-    col4.appendChild(platform);
+
+    let a = document.createElement("a");
+    a.classList.add("trackLink");
+    a.setAttribute("href",row.eintrag.col3.to);
+    a.innerHTML = row.eintrag.col3.title;
+ //   titleBarRight.appendChild(a);
+    
+    platformContent.innerHTML = row.eintrag.col3.title;
+ //   platform.appendChild(platformContent);
+    platform.appendChild(a);
+    col3.appendChild(platform);
 
     //add cols to row and row to table
     eintrag.appendChild(col1);
     eintrag.appendChild(col2);
-    eintrag.innerHTML += "<td><span class='wing_symbol'>&nbsp;</span></td>";
     eintrag.appendChild(col3);
-    eintrag.appendChild(col4);
     tbody.appendChild(eintrag);
 }
+
 
 //add unterschrift
 if(content.tafel.misc.unterschrift != ""){

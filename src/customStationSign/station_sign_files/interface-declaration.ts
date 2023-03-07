@@ -18,7 +18,6 @@ export interface Root {
     col1: string
     col2: string
     col3: string
-    col4: string
   }
   
   export interface Link {
@@ -37,17 +36,10 @@ export interface Root {
   export interface Eintrag {
     col1: Col1
     col2: string
-    col3: Col3
-    col4: string
+    col3: Link2
   }
   
   export interface Col1 {
     zeit: string
     zugnummer: string
   }
-  
-  export interface Col3 {
-    whiteText: string
-    yellowText: string
-  }
-  

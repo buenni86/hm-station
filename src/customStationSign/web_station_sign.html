@@ -128,7 +128,9 @@
                 overflow: hidden;
             }
             .column_time { /* Eigenschaften für die Spalte Zeit */
-                width: 115px;
+                min-width: 150px;
+                width: 10%;
+                table-layout: fixed;
             }
             .cell_time { /* Eigenschaften für eine Zelle in der Spalte Zeit */
                 background-color: #FFFFFF;
@@ -138,7 +140,7 @@
             .time, .tripID {
                 display: block;
             }
-            .time { /* Eigenschaften für eine die Zeit in einer Zelle in der Spalte Zeit */
+            .time { /* Eigenschaften für die Zeit in einer Zelle in der Spalte Zeit */
                 font-size: 32px;
             }
             .tripID { /* Eigenschaften für eine die Zugnummer in einer Zelle in der Spalte Zeit */
@@ -157,12 +159,12 @@
             }
             .to_from { /* Eigenschaften für die Zelle in der Spalte Von / Nach */
                 font-size: 26px;
+                text-align: left;
                 font-weight: bold;
-
             }
             .platform { /* Eigenschaften für die Zelle in der Spalte Gleis */
                 font-size: 26px;
-                font-weight: bold;
+                font-weight: lighter;
                 text-align: center;
             }
             .tripMessage { /* Eigenschaften für die Abweichungsmeldungen in der Spalte Über */
@@ -170,11 +172,22 @@
                 font-size: 17px;
             }
             .column_to_from { /* Eigenschaften für die Spalte Von / Nach */
-                width: 25%;
+                width: 80%;
+                table-layout: fixed;
             }
-            .column_track { /* Eigenschaften für die Spalte Gleis */
-                width: 110px;
+            .column_track { /* Eigenschaften für die Spalte Gleis */        
+                min-width: 200px;        
+                width: 10%;
+                table-layout: fixed;
             }
+            
+            .trackLink {
+                color: #FFFFFF;
+                font-size: 26px;
+                font-weight: lighter;
+                text-align: center;
+            }
+
             #additionalTextContainer { /* Eigenschaften für die Hinweismeldung und Großstörungsmeldung */
                 background-color: #FFFFFF;
                 bottom: 0;
@@ -205,7 +218,7 @@
                 display: block;
                 overflow: hidden;
                 position: relative;
-                white-space: nowrap;
+                /*white-space: nowrap;*/
             }
 
             .column_wing_symbol {
@@ -245,7 +258,7 @@
 
             .additionalStyling {
                 overflow: visible; 
-                white-space: nowrap; 
+                /*white-space: nowrap; */
                 border: none; 
                 position: relative; 
                 padding: 0px; 
@@ -282,14 +295,12 @@
             <div class="titleBarClear"></div>
         </div>
         <div id="tafelContent">
-            <table id="0" class="" style="margin-bottom: 0px;"><colgroup><col class="column_time"><col class="column_to_from"><col class="column_wing_symbol"><col class="column_via"><col class="column_track"></colgroup>
+            <table id="0" class="" style="margin-bottom: 0px;"><colgroup><col class="column_time"><col class="column_to_from"><col class="column_track"></colgroup>
                 <thead>
                     <tr>
                         <th><span class="firstLanguage" id="col1"></span></th>
                         <th><span class="firstLanguage" id="col2"></span></th>
-                        <th><span class="firstLanguage">&nbsp;</span></th>
                         <th><span class="firstLanguage" id="col3"></span></th>
-                        <th><span class="firstLanguage" id="col4"></span></th>
                     </tr>
                 </thead>
                 <tbody id="tbody"></tbody>
