@@ -287,7 +287,16 @@ const buttons = [
 
 function abortVoting() {    
     WA.room.hideLayer(roofLayerMain);
-    WA.nav.goToRoom(urlAbortVoting);
+    WA.room.hideLayer(openRoofLayer1);
+    WA.room.hideLayer(openRoofLayer2);
+    WA.room.hideLayer(openRoofLayer3);
+    WA.room.hideLayer(openRoofLayer4);
+    WA.room.showLayer(roofLayer1);
+    WA.room.showLayer(roofLayer2);
+    WA.room.showLayer(roofLayer3);
+    WA.room.showLayer(roofLayer4);
+
+    WA.nav.goToRoom(urlVotingExit);
 }
 
 function exitVoting() {
@@ -414,7 +423,7 @@ function init4thRoom() {
         label: labelAbortVoting,
         callback: (popup => {
             closePopUp();
-            WA.nav.goToRoom(urlAbortVoting);
+            abortVoting();
         })
     }]);
 }
