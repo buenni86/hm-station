@@ -164,8 +164,8 @@ WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
                 callback: (popup => {
                     closePopUp();
                     WA.player.state.hasVoted = true;    // players shall only vote once
-                    WA.nav.goToRoom(url1stRoom);
                     init1stRoom();
+                    WA.nav.goToRoom(url1stRoom);
                 })
             },
             {
@@ -264,6 +264,20 @@ WA.room.onEnterLayer(hidelayerRegio2).subscribe(() => {
  *  Voting
  */
 
+var roofLayer1 = "voting_top_closed/room1";
+var roofLayer2 = "voting_top_closed/room2";
+var roofLayer3 = "voting_top_closed/room3";
+var roofLayer4 = "voting_top_closed/room4";
+var roofLayerMain = "voting_top_opened/mainRoom";
+var openRoofLayer1 = "voting_top_opened/room1";
+var openRoofLayer2 = "voting_top_opened/room2";
+var openRoofLayer3 = "voting_top_opened/room3";
+var openRoofLayer4 = "voting_top_opened/room4";
+var hideLayerRoof1 = "specialZones/voting/remove_roofs/roof1";
+var hideLayerRoof2 = "specialZones/voting/remove_roofs/roof2";
+var hideLayerRoof3 = "specialZones/voting/remove_roofs/roof3";
+var hideLayerRoof4 = "specialZones/voting/remove_roofs/roof4";
+
 const buttons = [
     {
       label: "Reset",
@@ -276,6 +290,7 @@ const buttons = [
 ]
 
 function init1stRoom() {
+    console.log("preparing 1st room...");
     WA.room.hideLayer(roofLayer1);
     WA.room.showLayer(roofLayerMain);
     WA.room.showLayer(openRoofLayer1);
@@ -398,22 +413,6 @@ WA.onInit().then(async () => {
     /*
     *  Hiding Layers .... voting roof
     */
-
-    var roofLayer1 = "voting_top_closed/room1";
-    var roofLayer2 = "voting_top_closed/room2";
-    var roofLayer3 = "voting_top_closed/room3";
-    var roofLayer4 = "voting_top_closed/room4";
-    var roofLayerMain = "voting_top_opened/mainRoom";
-    var openRoofLayer1 = "voting_top_opened/room1";
-    var openRoofLayer2 = "voting_top_opened/room2";
-    var openRoofLayer3 = "voting_top_opened/room3";
-    var openRoofLayer4 = "voting_top_opened/room4";
-    var hideLayerRoof1 = "specialZones/voting/remove_roofs/roof1";
-    var hideLayerRoof2 = "specialZones/voting/remove_roofs/roof2";
-    var hideLayerRoof3 = "specialZones/voting/remove_roofs/roof3";
-    var hideLayerRoof4 = "specialZones/voting/remove_roofs/roof4";
-
-    
 
     WA.room.onLeaveLayer(hideLayerRoof1).subscribe(() => {
         WA.room.showLayer(roofLayer1);
