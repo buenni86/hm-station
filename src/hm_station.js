@@ -56,10 +56,10 @@ var urlJobs2 = "https://db.jobs/service/search/de-de/7707604?qli=true&query=&ite
 
 var urlAbortVoting = "../db/hm-bahnhof";
 var url1stRoom = "../db/hm-bahnhof#specialZones/voting/entry1stRoom";
-var url2ndRoom = "../db/hm-bahnhof/specialZones/voting/entry2ndRoom";
-var url3rdRoom = "../db/hm-bahnhof/specialZones/voting/entry3rdRoom";
-var url4thRoom = "../db/hm-bahnhof/specialZones/voting/entry4thRoom";
-var urlVotingExit = "../db/hm-bahnhof/specialZones/voting/votingExit";
+var url2ndRoom = "../db/hm-bahnhof#specialZones/voting/entry2ndRoom";
+var url3rdRoom = "../db/hm-bahnhof#specialZones/voting/entry3rdRoom";
+var url4thRoom = "../db/hm-bahnhof#specialZones/voting/entry4thRoom";
+var urlVotingExit = "../db/hm-bahnhof#specialZones/voting/votingExit";
 
 function closePopUp(){
     if (currentPopup !== undefined) {
