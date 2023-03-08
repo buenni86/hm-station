@@ -152,10 +152,6 @@ WA.room.onEnterLayer(layerMeetUs).subscribe(() => {
          }]);
 })
 
-WA.room.onLeaveLayer(layerDoVoting).subscribe(() => {
-    closePopUp();
-})
-
 WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
     if (!WA.player.state.hasVoted) {
         currentPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
