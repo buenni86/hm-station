@@ -268,10 +268,6 @@ var openRoofLayer1 = "voting_top_opened/room1";
 var openRoofLayer2 = "voting_top_opened/room2";
 var openRoofLayer3 = "voting_top_opened/room3";
 var openRoofLayer4 = "voting_top_opened/room4";
-//var hideLayerRoof1 = "specialZones/voting/remove_roofs/roof1";
-//var hideLayerRoof2 = "specialZones/voting/remove_roofs/roof2";
-//var hideLayerRoof3 = "specialZones/voting/remove_roofs/roof3";
-//var hideLayerRoof4 = "specialZones/voting/remove_roofs/roof4";
 
 const buttons = [
     {
