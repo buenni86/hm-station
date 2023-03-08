@@ -33,6 +33,7 @@ var popUpDoVoting = "doVoting";
 var msgDoVoting = "Möchtest du am Voting teilnehmen und weitere interessante Dinge über die DB als Arbeitgeber erfahren?";
 var labelDo = "Ja!";
 var labelDont = "Kein Interesse";
+var labelAbortVoting = "Voting abbrechen";
 
 var layerImportance = "popUpImportance";
 var popUpImportance = "importance";
@@ -52,6 +53,13 @@ var popUpJobLocationResult = "locationResult";
 var msgJobLocationResult = "Bei uns kannst du jedem der Bereiche einstiegen. Schau dich doch einfach mal um:";
 var labelShowJobs = "Zeig mir die Jobs!";
 var urlJobs2 = "https://db.jobs/service/search/de-de/7707604?qli=true&query=&itemsPerPage=10&pageNum=0&country=Deutschland&positiontype=Ausbildung&positiontype=Duales+Studium"
+
+var urlAbortVoting = "../db/hm-bahnhof";
+var url1stRoom = "../db/hm-bahnhof#specialZones/voting/entry1stRoom";
+var url2ndRoom = "../db/hm-bahnhof/specialZones/voting/entry2ndRoom";
+var url3rdRoom = "../db/hm-bahnhof/specialZones/voting/entry3rdRoom";
+var url4thRoom = "../db/hm-bahnhof/specialZones/voting/entry4thRoom";
+var urlVotingExit = "../db/hm-bahnhof/specialZones/voting/votingExit";
 
 function closePopUp(){
     if (currentPopup !== undefined) {
@@ -148,19 +156,15 @@ WA.room.onLeaveLayer(layerDoVoting).subscribe(() => {
     closePopUp();
 })
 
-var firstRoomUrl = "../db/hm-bahnhof#specialZones/voting/entry1stRoom"
-
 WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
     if (!WA.player.state.hasVoted) {
         currentPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
             {
                 label: labelDo,
                 callback: (popup => {
-                    // transfer woka into voting area
-                    // remember woka on list for already voted wokas
                     closePopUp();
-                    WA.player.state.hasVoted = true;
-                    WA.nav.goToRoom(firstRoomUrl);
+                    WA.player.state.hasVoted = true;    // players shall only vote once
+                    WA.nav.goToRoom(url1stRoom);
                 })
             },
             {
@@ -276,85 +280,79 @@ WA.onInit().then(async () => {
     }).catch(e => console.error(e))
 
     var layerVoteAcq = "specialZones/voting/acquisitionVoting";
-    var labelVoteAcq = "voteAcquisiton";
     var layerVoteMoney = "specialZones/voting/moneyVoting";
-    var labelVoteMoney = "voteMoney";
     var layerVoteTicket = "specialZones/voting/ticketVoting";
-    var labelVoteTicket = "voteTicket";
     var layerVoteOffice = "specialZones/voting/officeVoting";
-    var labelVoteOffice = "voteOffice";
     var layerVoteWorkshop = "specialZones/voting/workshopVoting";
-    var labelVoteWorkshop = "voteWorkshop";
     var layerVoteTrain = "specialZones/voting/trainVoting";
-    var labelVoteTrain = "voteTrain";
     var layerVoteOutside = "specialZones/voting/outsideVoting";
-    var labelVoteOutside = "voteOutside";
+    var layerExit2ndRoom = "specialZones/voting/exit2ndRoom";
+    var layerOpenExit = "specialZones/voting/openExit_auto";
 
     var layerReset = "specialZones/voteReset";
 
     WA.room.onEnterLayer(layerVoteAcq).subscribe(() => {
-//        console.log(labelVoteAcq, WA.state.voteAcquisition)
         WA.state.voteAcquisition++
-    })
-    
+        WA.nav.goToRoom(url2ndRoom);
+    })    
     WA.room.onLeaveLayer(layerVoteAcq).subscribe(() => {
-//        console.log(labelVoteAcq, WA.state.voteAcquisition)
         if (WA.state.voteAcquisition === 0) return
     })
 
     WA.room.onEnterLayer(layerVoteMoney).subscribe(() => {
-//        console.log(labelVoteMoney, WA.state.voteMoney)
         WA.state.voteMoney++
-    })
-    
+        WA.nav.goToRoom(url2ndRoom);
+    })    
     WA.room.onLeaveLayer(layerVoteMoney).subscribe(() => {
-//        console.log(labelVoteMoney, WA.state.voteMoney)
         if (WA.state.voteMoney === 0) return
     })
 
     WA.room.onEnterLayer(layerVoteTicket).subscribe(() => {
-//        console.log(labelVoteTicket, WA.state.voteTicket)
         WA.state.voteTicket++
+        WA.nav.goToRoom(url2ndRoom);
     })
     WA.room.onLeaveLayer(layerVoteTicket).subscribe(() => {
-//        console.log(labelVoteTicket, WA.state.voteTicket)
         if (WA.state.voteTicket === 0) return
     })
 
+    WA.room.onEnterLayer(layerExit2ndRoom).subscribe(() => {
+        WA.nav.goToRoom(url3rdRoom);
+    })
+
     WA.room.onEnterLayer(layerVoteOffice).subscribe(() => {
-//        console.log(labelVoteOffice, WA.state.voteOffice)
         WA.state.voteOffice++
+        WA.nav.goToRoom(url4thRoom);
     })
     WA.room.onLeaveLayer(layerVoteOffice).subscribe(() => {
-//        console.log(labelVoteOffice, WA.state.voteOffice)
         if (WA.state.voteOffice === 0) return
     })
     
     WA.room.onEnterLayer(layerVoteTrain).subscribe(() => {
-//        console.log(labelVoteTrain, WA.state.voteTrain)
         WA.state.voteTrain++
+        WA.nav.goToRoom(url4thRoom);
     })
     WA.room.onLeaveLayer(layerVoteTrain).subscribe(() => {
-//        console.log(labelVoteTrain, WA.state.voteTrain)
         if (WA.state.voteTrain === 0) return
     })
     
     WA.room.onEnterLayer(layerVoteWorkshop).subscribe(() => {
-//        console.log(labelVoteWorkshop, WA.state.voteWorkshop)
         WA.state.voteWorkshop++
+        WA.nav.goToRoom(url4thRoom);
     })
     WA.room.onLeaveLayer(layerVoteWorkshop).subscribe(() => {
-//        console.log(labelVoteWorkshop, WA.state.voteWorkshop)
         if (WA.state.voteWorkshop === 0) return
     })
     
     WA.room.onEnterLayer(layerVoteOutside).subscribe(() => {
-//        console.log(labelVoteOutside, WA.state.voteOutside)
         WA.state.voteOutside++
+        WA.nav.goToRoom(url4thRoom);
     })
     WA.room.onLeaveLayer(layerVoteOutside).subscribe(() => {
-//        console.log(labelVoteOutside, WA.state.voteOutside)
         if (WA.state.voteOutside === 0) return
+    })
+
+    WA.room.onEnterLayer(layerOpenExit).subscribe(() => {
+        WA.nav.goToRoom(urlVotingExit);
     })
 
     let voteResetPopup;
@@ -369,7 +367,6 @@ WA.onInit().then(async () => {
     WA.room.onLeaveLayer(layerReset).subscribe(() => {
         voteResetPopup.close()
     })
-
 
     /*
     *  Hiding Layers .... voting roof
@@ -460,6 +457,13 @@ WA.onInit().then(async () => {
                 callback: (popup => {
                     closePopUp();
                 })
+            },
+            {
+                label: labelAbortVoting,
+                callback: (popup => {
+                    closePopUp();
+                    WA.nav.goToRoom(urlAbortVoting);
+                })
             }]);
     })
     
@@ -476,6 +480,13 @@ WA.onInit().then(async () => {
                 callback: (popup => {
                     closePopUp();
                 })
+            },
+            {
+                label: labelAbortVoting,
+                callback: (popup => {
+                    closePopUp();
+                    WA.nav.goToRoom(urlAbortVoting);
+                })
             }]);
     })
     
@@ -491,6 +502,13 @@ WA.onInit().then(async () => {
                 label: labelClose,
                 callback: (popup => {
                     closePopUp();
+                })
+            },
+            {
+                label: labelAbortVoting,
+                callback: (popup => {
+                    closePopUp();
+                    WA.nav.goToRoom(urlAbortVoting);
                 })
             }]);
     })
@@ -514,6 +532,13 @@ WA.onInit().then(async () => {
                 label: labelClose,
                 callback: (popup => {
                     closePopUp();
+                })
+            },
+            {
+                label: labelAbortVoting,
+                callback: (popup => {
+                    closePopUp();
+                    WA.nav.goToRoom(urlAbortVoting);
                 })
             }]);
     })
