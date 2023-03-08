@@ -35,7 +35,7 @@ var labelDo = "Ja!";
 var labelDont = "Kein Interesse";
 var labelAbortVoting = "Voting abbrechen";
 
-var layerImportance = "popUpImportance";
+//var layerImportance = "popUpImportance";
 var popUpImportance = "importance";
 var msgImportance = "Willkommen beim Voting. Lass uns direkt loslegen:\n\nWas ist dir wichtig?\n\nSpringe in das jeweilige Portal, um deine Stimme abzugeben.";
 
@@ -54,7 +54,6 @@ var msgJobLocationResult = "Bei uns kannst du jedem der Bereiche einstiegen. Sch
 var labelShowJobs = "Zeig mir die Jobs!";
 var urlJobs2 = "https://db.jobs/service/search/de-de/7707604?qli=true&query=&itemsPerPage=10&pageNum=0&country=Deutschland&positiontype=Ausbildung&positiontype=Duales+Studium"
 
-var urlAbortVoting = "../db/hm-bahnhof";
 var url1stRoom = "../db/hm-bahnhof#specialZones/voting/entry1stRoom";
 var url2ndRoom = "../db/hm-bahnhof#specialZones/voting/entry2ndRoom";
 var url3rdRoom = "../db/hm-bahnhof#specialZones/voting/entry3rdRoom";
@@ -269,10 +268,10 @@ var openRoofLayer1 = "voting_top_opened/room1";
 var openRoofLayer2 = "voting_top_opened/room2";
 var openRoofLayer3 = "voting_top_opened/room3";
 var openRoofLayer4 = "voting_top_opened/room4";
-var hideLayerRoof1 = "specialZones/voting/remove_roofs/roof1";
-var hideLayerRoof2 = "specialZones/voting/remove_roofs/roof2";
-var hideLayerRoof3 = "specialZones/voting/remove_roofs/roof3";
-var hideLayerRoof4 = "specialZones/voting/remove_roofs/roof4";
+//var hideLayerRoof1 = "specialZones/voting/remove_roofs/roof1";
+//var hideLayerRoof2 = "specialZones/voting/remove_roofs/roof2";
+//var hideLayerRoof3 = "specialZones/voting/remove_roofs/roof3";
+//var hideLayerRoof4 = "specialZones/voting/remove_roofs/roof4";
 
 const buttons = [
     {
@@ -301,6 +300,9 @@ function abortVoting() {
 
 function exitVoting() {
     WA.room.hideLayer(roofLayerMain);
+    WA.room.hideLayer(openRoofLayer4);
+    WA.room.showLayer(roofLayer4);
+
     WA.nav.goToRoom(urlVotingExit);
 }
 
@@ -449,7 +451,6 @@ WA.onInit().then(async () => {
 
     WA.room.onEnterLayer(layerVoteAcq).subscribe(() => {
         WA.state.voteAcquisition++
-//        WA.nav.goToRoom(url2ndRoom);
         init2ndRoom();
     })    
     WA.room.onLeaveLayer(layerVoteAcq).subscribe(() => {
@@ -458,7 +459,6 @@ WA.onInit().then(async () => {
 
     WA.room.onEnterLayer(layerVoteMoney).subscribe(() => {
         WA.state.voteMoney++
-//        WA.nav.goToRoom(url2ndRoom);
         init2ndRoom();
     })    
     WA.room.onLeaveLayer(layerVoteMoney).subscribe(() => {
@@ -467,7 +467,6 @@ WA.onInit().then(async () => {
 
     WA.room.onEnterLayer(layerVoteTicket).subscribe(() => {
         WA.state.voteTicket++
-//        WA.nav.goToRoom(url2ndRoom);
         init2ndRoom();
     })
     WA.room.onLeaveLayer(layerVoteTicket).subscribe(() => {
@@ -526,156 +525,4 @@ WA.onInit().then(async () => {
     WA.room.onLeaveLayer(layerReset).subscribe(() => {
         voteResetPopup.close()
     })
-
-    /*
-    *  Hiding Layers .... voting roof
-    */
-
-//    WA.room.onLeaveLayer(hideLayerRoof1).subscribe(() => {
-//        WA.room.showLayer(roofLayer1);
-//        WA.room.hideLayer(openRoofLayer1);
-//        WA.room.hideLayer(roofLayerMain);
-//    })
-
-//    WA.room.onEnterLayer(hideLayerRoof1).subscribe(() => {
-//        WA.room.hideLayer(roofLayer1);
-//        WA.room.showLayer(roofLayerMain);
-//        WA.room.showLayer(openRoofLayer1);
-//    })
-
-//    WA.room.onLeaveLayer(hideLayerRoof2).subscribe(() => {
-//        WA.room.showLayer(roofLayer2);
-//        WA.room.hideLayer(openRoofLayer2);
-//    })
-
-//    WA.room.onEnterLayer(hideLayerRoof2).subscribe(() => {
-//        WA.room.showLayer(roofLayerMain);
-//        WA.room.showLayer(roofLayer1);
-//        WA.room.hideLayer(openRoofLayer1);
-
-//        WA.room.hideLayer(roofLayer2);
-//        WA.room.showLayer(openRoofLayer2);
-//    })
-
-//    WA.room.onLeaveLayer(hideLayerRoof3).subscribe(() => {
-//        WA.room.showLayer(roofLayer3);
-//        WA.room.hideLayer(openRoofLayer3);
-//    })
-
-//    WA.room.onEnterLayer(hideLayerRoof3).subscribe(() => {
-//        WA.room.showLayer(roofLayerMain);
-//        WA.room.showLayer(roofLayer2);
-//        WA.room.hideLayer(openRoofLayer2);
-
-//        WA.room.hideLayer(roofLayer3);
-//        WA.room.showLayer(openRoofLayer3);
-//    })
-
-//    WA.room.onLeaveLayer(hideLayerRoof4).subscribe(() => {
-//        WA.room.showLayer(roofLayer4);
-//        WA.room.hideLayer(openRoofLayer4);
-//        WA.room.hideLayer(roofLayerMain);
-//    })
-
-//    WA.room.onEnterLayer(hideLayerRoof4).subscribe(() => {
-//        WA.room.showLayer(roofLayerMain);
-//        WA.room.showLayer(roofLayer3);
-//        WA.room.hideLayer(openRoofLayer3);
-
-//        WA.room.hideLayer(roofLayer4);
-//        WA.room.showLayer(openRoofLayer4);
-//    })
-
-
-    // Voting PopUps
-     
-    /*
-    WA.room.onEnterLayer(layerImportance).subscribe(() => {
-        if (currentPopup != null) closePopUp();
-
-        currentPopup =  WA.ui.openPopup(popUpImportance, msgImportance,[
-            {
-                label: labelClose,
-                callback: (popup => {
-                    closePopUp();
-                })
-            },
-            {
-                label: labelAbortVoting,
-                callback: (popup => {
-                    closePopUp();
-                    WA.nav.goToRoom(urlAbortVoting);
-                })
-            }]);
-    })
-    */
-    /*     
-    WA.room.onEnterLayer(layerImportanceResult).subscribe(() => {
-        if (currentPopup != null) closePopUp();
-
-        currentPopup =  WA.ui.openPopup(popUpImportanceResult, msgImportanceResult,[
-            {
-                label: labelCool,
-                callback: (popup => {
-                    closePopUp();
-                })
-            },
-            {
-                label: labelAbortVoting,
-                callback: (popup => {
-                    closePopUp();
-                    WA.nav.goToRoom(urlAbortVoting);
-                })
-            }]);
-    })
-    */
-         
-    /*
-    WA.room.onEnterLayer(layerJobLocation).subscribe(() => {
-        if (currentPopup != null) closePopUp();
-
-        currentPopup =  WA.ui.openPopup(popUpJobLocation, msgJobLocation,[
-            {
-                label: labelClose,
-                callback: (popup => {
-                    closePopUp();
-                })
-            },
-            {
-                label: labelAbortVoting,
-                callback: (popup => {
-                    closePopUp();
-                    WA.nav.goToRoom(urlAbortVoting);
-                })
-            }]);
-    })
-    */
-
-    /*
-    WA.room.onEnterLayer(layerJobLocationResult).subscribe(() => {
-        if (currentPopup != null) closePopUp();
-
-        currentPopup =  WA.ui.openPopup(popUpJobLocationResult, msgJobLocationResult,[
-            {
-                label: labelShowJobs,
-                callback: (popup => {
-                    WA.nav.openTab(urlJobs2);
-                    closePopUp();
-                })
-            },
-            {
-                label: labelClose,
-                callback: (popup => {
-                    closePopUp();
-                })
-            },
-            {
-                label: labelAbortVoting,
-                callback: (popup => {
-                    closePopUp();
-                    WA.nav.goToRoom(urlAbortVoting);
-                })
-            }]);
-    })
-    */
 }).catch(e => console.error(e))
