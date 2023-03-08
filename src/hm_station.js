@@ -285,6 +285,16 @@ const buttons = [
     }
 ]
 
+function abortVoting() {    
+    WA.room.hideLayer(roofLayerMain);
+    WA.nav.goToRoom(urlAbortVoting);
+}
+
+function exitVoting() {
+    WA.room.hideLayer(roofLayerMain);
+    WA.nav.goToRoom(urlVotingExit);
+}
+
 function init1stRoom() {
     console.log("preparing 1st room...");
     WA.room.hideLayer(roofLayer1);
@@ -304,7 +314,7 @@ function init1stRoom() {
             label: labelAbortVoting,
             callback: (popup => {
                 closePopUp();
-                WA.nav.goToRoom(urlAbortVoting);
+                abortVoting();
             })
         }]);
 }
@@ -335,9 +345,78 @@ function init2ndRoom() {
             label: labelAbortVoting,
             callback: (popup => {
                 closePopUp();
-                WA.nav.goToRoom(urlAbortVoting);
+                abortVoting();
             })
         }]);
+}
+
+function init3rdRoom() {
+    console.log("preparing 3rd room...");
+
+    WA.room.showLayer(roofLayerMain);
+    WA.room.showLayer(roofLayer2);
+    WA.room.showLayer(openRoofLayer3);
+
+    WA.room.hideLayer(openRoofLayer2);
+    WA.room.hideLayer(roofLayer3);
+    
+    // enter next room
+    WA.nav.goToRoom(url3rdRoom);
+
+    if (currentPopup != null) closePopUp();
+
+    currentPopup =  WA.ui.openPopup(popUpJobLocation, msgJobLocation,[
+    {
+        label: labelClose,
+        callback: (popup => {
+            closePopUp();
+        })
+    },
+    {
+        label: labelAbortVoting,
+        callback: (popup => {
+            closePopUp();
+            abortVoting();
+        })
+    }]);
+}
+
+function init4thRoom() {
+    console.log("preparing 4th room...");
+
+    WA.room.showLayer(roofLayerMain);
+    WA.room.showLayer(roofLayer3);
+    WA.room.showLayer(openRoofLayer4);
+
+    WA.room.hideLayer(openRoofLayer3);
+    WA.room.hideLayer(roofLayer4);
+    
+    // enter next room
+    WA.nav.goToRoom(url4thRoom);
+
+    if (currentPopup != null) closePopUp();
+
+    currentPopup = WA.ui.openPopup(popUpJobLocationResult, msgJobLocationResult,[
+    {
+        label: labelShowJobs,
+        callback: (popup => {
+            WA.nav.openTab(urlJobs2);
+            closePopUp();
+        })
+    },
+    {
+        label: labelClose,
+        callback: (popup => {
+            closePopUp();
+        })
+    },
+    {
+        label: labelAbortVoting,
+        callback: (popup => {
+            closePopUp();
+            WA.nav.goToRoom(urlAbortVoting);
+        })
+    }]);
 }
 
 WA.onInit().then(async () => {
@@ -387,12 +466,12 @@ WA.onInit().then(async () => {
     })
 
     WA.room.onEnterLayer(layerExit2ndRoom).subscribe(() => {
-        WA.nav.goToRoom(url3rdRoom);
+        init3rdRoom();
     })
 
     WA.room.onEnterLayer(layerVoteOffice).subscribe(() => {
         WA.state.voteOffice++
-        WA.nav.goToRoom(url4thRoom);
+        init4thRoom();
     })
     WA.room.onLeaveLayer(layerVoteOffice).subscribe(() => {
         if (WA.state.voteOffice === 0) return
@@ -400,7 +479,7 @@ WA.onInit().then(async () => {
     
     WA.room.onEnterLayer(layerVoteTrain).subscribe(() => {
         WA.state.voteTrain++
-        WA.nav.goToRoom(url4thRoom);
+        init4thRoom();
     })
     WA.room.onLeaveLayer(layerVoteTrain).subscribe(() => {
         if (WA.state.voteTrain === 0) return
@@ -408,7 +487,7 @@ WA.onInit().then(async () => {
     
     WA.room.onEnterLayer(layerVoteWorkshop).subscribe(() => {
         WA.state.voteWorkshop++
-        WA.nav.goToRoom(url4thRoom);
+        init4thRoom();
     })
     WA.room.onLeaveLayer(layerVoteWorkshop).subscribe(() => {
         if (WA.state.voteWorkshop === 0) return
@@ -416,14 +495,14 @@ WA.onInit().then(async () => {
     
     WA.room.onEnterLayer(layerVoteOutside).subscribe(() => {
         WA.state.voteOutside++
-        WA.nav.goToRoom(url4thRoom);
+        init4thRoom();
     })
     WA.room.onLeaveLayer(layerVoteOutside).subscribe(() => {
         if (WA.state.voteOutside === 0) return
     })
 
     WA.room.onEnterLayer(layerOpenExit).subscribe(() => {
-        WA.nav.goToRoom(urlVotingExit);
+        exitVoting();
     })
 
     let voteResetPopup;
@@ -469,41 +548,37 @@ WA.onInit().then(async () => {
 //        WA.room.showLayer(openRoofLayer2);
 //    })
 
-    WA.room.onLeaveLayer(hideLayerRoof3).subscribe(() => {
-        WA.room.showLayer(roofLayer3);
-        WA.room.hideLayer(openRoofLayer3);
-    })
+//    WA.room.onLeaveLayer(hideLayerRoof3).subscribe(() => {
+//        WA.room.showLayer(roofLayer3);
+//        WA.room.hideLayer(openRoofLayer3);
+//    })
 
-    WA.room.onEnterLayer(hideLayerRoof3).subscribe(() => {
-        WA.room.showLayer(roofLayerMain);
-        WA.room.showLayer(roofLayer2);
-        WA.room.hideLayer(openRoofLayer2);
+//    WA.room.onEnterLayer(hideLayerRoof3).subscribe(() => {
+//        WA.room.showLayer(roofLayerMain);
+//        WA.room.showLayer(roofLayer2);
+//        WA.room.hideLayer(openRoofLayer2);
 
-        WA.room.hideLayer(roofLayer3);
-        WA.room.showLayer(openRoofLayer3);
-    })
+//        WA.room.hideLayer(roofLayer3);
+//        WA.room.showLayer(openRoofLayer3);
+//    })
 
-    WA.room.onLeaveLayer(hideLayerRoof4).subscribe(() => {
-        WA.room.showLayer(roofLayer4);
-        WA.room.hideLayer(openRoofLayer4);
-        WA.room.hideLayer(roofLayerMain);
-    })
+//    WA.room.onLeaveLayer(hideLayerRoof4).subscribe(() => {
+//        WA.room.showLayer(roofLayer4);
+//        WA.room.hideLayer(openRoofLayer4);
+//        WA.room.hideLayer(roofLayerMain);
+//    })
 
-    WA.room.onEnterLayer(hideLayerRoof4).subscribe(() => {
-        WA.room.showLayer(roofLayerMain);
-        WA.room.showLayer(roofLayer3);
-        WA.room.hideLayer(openRoofLayer3);
+//    WA.room.onEnterLayer(hideLayerRoof4).subscribe(() => {
+//        WA.room.showLayer(roofLayerMain);
+//        WA.room.showLayer(roofLayer3);
+//        WA.room.hideLayer(openRoofLayer3);
 
-        WA.room.hideLayer(roofLayer4);
-        WA.room.showLayer(openRoofLayer4);
-    })
+//        WA.room.hideLayer(roofLayer4);
+//        WA.room.showLayer(openRoofLayer4);
+//    })
 
 
     // Voting PopUps
-
-    WA.room.onLeaveLayer(layerImportance).subscribe(() => {
-        closePopUp();
-    })
      
     /*
     WA.room.onEnterLayer(layerImportance).subscribe(() => {
@@ -525,11 +600,7 @@ WA.onInit().then(async () => {
             }]);
     })
     */
-    
-    WA.room.onLeaveLayer(layerImportanceResult).subscribe(() => {
-        closePopUp();
-    })
-     
+    /*     
     WA.room.onEnterLayer(layerImportanceResult).subscribe(() => {
         if (currentPopup != null) closePopUp();
 
@@ -548,11 +619,9 @@ WA.onInit().then(async () => {
                 })
             }]);
     })
-    
-    WA.room.onLeaveLayer(layerJobLocation).subscribe(() => {
-        closePopUp();
-    })
-     
+    */
+         
+    /*
     WA.room.onEnterLayer(layerJobLocation).subscribe(() => {
         if (currentPopup != null) closePopUp();
 
@@ -571,11 +640,9 @@ WA.onInit().then(async () => {
                 })
             }]);
     })
-    
-    WA.room.onLeaveLayer(layerJobLocationResult).subscribe(() => {
-        closePopUp();
-    })
-     
+    */
+
+    /*
     WA.room.onEnterLayer(layerJobLocationResult).subscribe(() => {
         if (currentPopup != null) closePopUp();
 
@@ -601,4 +668,5 @@ WA.onInit().then(async () => {
                 })
             }]);
     })
+    */
 }).catch(e => console.error(e))
