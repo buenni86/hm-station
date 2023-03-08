@@ -148,7 +148,7 @@ WA.room.onLeaveLayer(layerDoVoting).subscribe(() => {
     closePopUp();
 })
 
-var firstRoomUrl = "../hm-bahnhof#specialZones/voting/entry1stRoom"
+var firstRoomUrl = "../db/hm-bahnhof#specialZones/voting/entry1stRoom"
 
 WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
     if (!WA.player.state.hasVoted || WA.player.tags.includes("editor") || WA.player.tags.includes("hm-station-admin")) {
