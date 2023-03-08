@@ -268,8 +268,10 @@ const buttons = [
     {
       label: "Reset",
       className: "error",
-      callback: () =>
-        (WA.state.voteMoney = WA.state.voteAcquisition = WA.state.voteTicket = WA.state.voteOffice = WA.state.voteOutside = WA.state.voteWorkshop = WA.state.voteTrain = 0)
+      callback: () => {
+        (WA.state.voteMoney = WA.state.voteAcquisition = WA.state.voteTicket = WA.state.voteOffice = WA.state.voteOutside = WA.state.voteWorkshop = WA.state.voteTrain = 0),
+        WA.player.state.hasVoted = false
+        }
     }
 ]
 
