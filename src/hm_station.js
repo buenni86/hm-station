@@ -308,7 +308,37 @@ function init1stRoom() {
             })
         }]);
 }
-    
+
+function init2ndRoom() {
+    console.log("preparing 2nd room...");
+
+    WA.room.showLayer(roofLayer1);
+    WA.room.showLayer(roofLayerMain);
+    WA.room.showLayer(openRoofLayer2);
+
+    WA.room.hideLayer(openRoofLayer1);
+    WA.room.hideLayer(roofLayer2);
+
+    // enter next room
+    WA.nav.goToRoom(url2ndRoom);
+
+    if (currentPopup != null) closePopUp();
+
+    currentPopup =  WA.ui.openPopup(popUpImportanceResult, msgImportanceResult,[
+        {
+            label: labelCool,
+            callback: (popup => {
+                closePopUp();
+            })
+        },
+        {
+            label: labelAbortVoting,
+            callback: (popup => {
+                closePopUp();
+                WA.nav.goToRoom(urlAbortVoting);
+            })
+        }]);
+}
 
 WA.onInit().then(async () => {
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
@@ -331,7 +361,8 @@ WA.onInit().then(async () => {
 
     WA.room.onEnterLayer(layerVoteAcq).subscribe(() => {
         WA.state.voteAcquisition++
-        WA.nav.goToRoom(url2ndRoom);
+//        WA.nav.goToRoom(url2ndRoom);
+        init2ndRoom();
     })    
     WA.room.onLeaveLayer(layerVoteAcq).subscribe(() => {
         if (WA.state.voteAcquisition === 0) return
@@ -339,7 +370,8 @@ WA.onInit().then(async () => {
 
     WA.room.onEnterLayer(layerVoteMoney).subscribe(() => {
         WA.state.voteMoney++
-        WA.nav.goToRoom(url2ndRoom);
+//        WA.nav.goToRoom(url2ndRoom);
+        init2ndRoom();
     })    
     WA.room.onLeaveLayer(layerVoteMoney).subscribe(() => {
         if (WA.state.voteMoney === 0) return
@@ -347,7 +379,8 @@ WA.onInit().then(async () => {
 
     WA.room.onEnterLayer(layerVoteTicket).subscribe(() => {
         WA.state.voteTicket++
-        WA.nav.goToRoom(url2ndRoom);
+//        WA.nav.goToRoom(url2ndRoom);
+        init2ndRoom();
     })
     WA.room.onLeaveLayer(layerVoteTicket).subscribe(() => {
         if (WA.state.voteTicket === 0) return
@@ -410,11 +443,11 @@ WA.onInit().then(async () => {
     *  Hiding Layers .... voting roof
     */
 
-    WA.room.onLeaveLayer(hideLayerRoof1).subscribe(() => {
-        WA.room.showLayer(roofLayer1);
-        WA.room.hideLayer(openRoofLayer1);
-        WA.room.hideLayer(roofLayerMain);
-    })
+//    WA.room.onLeaveLayer(hideLayerRoof1).subscribe(() => {
+//        WA.room.showLayer(roofLayer1);
+//        WA.room.hideLayer(openRoofLayer1);
+//        WA.room.hideLayer(roofLayerMain);
+//    })
 
 //    WA.room.onEnterLayer(hideLayerRoof1).subscribe(() => {
 //        WA.room.hideLayer(roofLayer1);
@@ -422,19 +455,19 @@ WA.onInit().then(async () => {
 //        WA.room.showLayer(openRoofLayer1);
 //    })
 
-    WA.room.onLeaveLayer(hideLayerRoof2).subscribe(() => {
-        WA.room.showLayer(roofLayer2);
-        WA.room.hideLayer(openRoofLayer2);
-    })
+//    WA.room.onLeaveLayer(hideLayerRoof2).subscribe(() => {
+//        WA.room.showLayer(roofLayer2);
+//        WA.room.hideLayer(openRoofLayer2);
+//    })
 
-    WA.room.onEnterLayer(hideLayerRoof2).subscribe(() => {
-        WA.room.showLayer(roofLayerMain);
-        WA.room.showLayer(roofLayer1);
-        WA.room.hideLayer(openRoofLayer1);
+//    WA.room.onEnterLayer(hideLayerRoof2).subscribe(() => {
+//        WA.room.showLayer(roofLayerMain);
+//        WA.room.showLayer(roofLayer1);
+//        WA.room.hideLayer(openRoofLayer1);
 
-        WA.room.hideLayer(roofLayer2);
-        WA.room.showLayer(openRoofLayer2);
-    })
+//        WA.room.hideLayer(roofLayer2);
+//        WA.room.showLayer(openRoofLayer2);
+//    })
 
     WA.room.onLeaveLayer(hideLayerRoof3).subscribe(() => {
         WA.room.showLayer(roofLayer3);
