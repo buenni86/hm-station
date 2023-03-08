@@ -5225,7 +5225,7 @@
                  "class":"area",
                  "height":70,
                  "id":93,
-                 "name":"trafficAppr3",
+                 "name":"videoTrafficAppr3",
                  "properties":[
                         {
                          "name":"openWebsite",
@@ -5900,7 +5900,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/public\/NW101_DualesStudium_Flyer_105x195_digital-data.pdf"
+                         "value":"\/NW101_DualesStudium_Flyer_105x195_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -5929,7 +5929,7 @@
                  "class":"area",
                  "height":70,
                  "id":40,
-                 "name":"trafficAppr2",
+                 "name":"videoTrafficAppr2",
                  "properties":[
                         {
                          "name":"openWebsite",
@@ -5985,7 +5985,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/public\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
+                         "value":"\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -6192,7 +6192,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/public\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
+                         "value":"\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -6204,7 +6204,7 @@
                  "class":"area",
                  "height":56.3333,
                  "id":92,
-                 "name":"trafficAppr1",
+                 "name":"videoTrafficAppr1",
                  "properties":[
                         {
                          "name":"openWebsite",
@@ -6226,7 +6226,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/public\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
+                         "value":"\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -8685,7 +8685,7 @@
          "y":0
         }],
  "nextlayerid":120,
- "nextobjectid":96,
+ "nextobjectid":98,
  "orientation":"orthogonal",
  "properties":[
         {
