@@ -147,24 +147,29 @@ WA.room.onEnterLayer(layerMeetUs).subscribe(() => {
 WA.room.onLeaveLayer(layerDoVoting).subscribe(() => {
     closePopUp();
 })
- 
+
+var firstRoomUrl = "../hm-bahnhof#specialZones/voting/entry1stRoom"
+
 WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
-    currentPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
-        {
-            label: labelDo,
-            callback: (popup => {
-                WA.player.moveTo()
-                // transfer woka into voting area
-                // remember woka on list for already voted wokas
-                closePopUp();
-            })
-        },
-        {
-            label: labelDont,
-            callback: (popup => {
-                closePopUp();
-            })
+    if (!WA.player.state.hasVoted || WA.player.tags.includes("editor") || WA.player.tags.includes("hm-station-admin")) {
+        currentPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
+            {
+                label: labelDo,
+                callback: (popup => {
+                    // transfer woka into voting area
+                    // remember woka on list for already voted wokas
+                    closePopUp();
+                    WA.player.state.hasVoted = true;
+                    WA.nav.goToRoom(firstRoomUrl);
+                })
+            },
+            {
+                label: labelDont,
+                callback: (popup => {
+                    closePopUp();
+                })
         }]);
+    }    
 })
 
 /*
@@ -264,6 +269,12 @@ const buttons = [
 ]
 
 WA.onInit().then(async () => {
+    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
+    bootstrapExtra()
+    .then(() => {
+        console.log("Scripting API Extra ready")        
+    }).catch(e => console.error(e))
+
     var layerVoteAcq = "specialZones/voting/acquisitionVoting";
     var labelVoteAcq = "voteAcquisiton";
     var layerVoteMoney = "specialZones/voting/moneyVoting";
@@ -281,71 +292,68 @@ WA.onInit().then(async () => {
 
     var layerReset = "specialZones/voteReset";
 
-    console.log("Scripting API ready")
-    console.log("Player tags: ", WA.player.tags)
-
     WA.room.onEnterLayer(layerVoteAcq).subscribe(() => {
-        console.log(labelVoteAcq, WA.state.voteAcquisition)
+//        console.log(labelVoteAcq, WA.state.voteAcquisition)
         WA.state.voteAcquisition++
     })
     
     WA.room.onLeaveLayer(layerVoteAcq).subscribe(() => {
-        console.log(labelVoteAcq, WA.state.voteAcquisition)
+//        console.log(labelVoteAcq, WA.state.voteAcquisition)
         if (WA.state.voteAcquisition === 0) return
     })
 
     WA.room.onEnterLayer(layerVoteMoney).subscribe(() => {
-        console.log(labelVoteMoney, WA.state.voteMoney)
+//        console.log(labelVoteMoney, WA.state.voteMoney)
         WA.state.voteMoney++
     })
     
     WA.room.onLeaveLayer(layerVoteMoney).subscribe(() => {
-        console.log(labelVoteMoney, WA.state.voteMoney)
+//        console.log(labelVoteMoney, WA.state.voteMoney)
         if (WA.state.voteMoney === 0) return
     })
 
     WA.room.onEnterLayer(layerVoteTicket).subscribe(() => {
-        console.log(labelVoteTicket, WA.state.voteTicket)
+//        console.log(labelVoteTicket, WA.state.voteTicket)
         WA.state.voteTicket++
     })
     WA.room.onLeaveLayer(layerVoteTicket).subscribe(() => {
-        console.log(labelVoteTicket, WA.state.voteTicket)
+//        console.log(labelVoteTicket, WA.state.voteTicket)
         if (WA.state.voteTicket === 0) return
     })
 
     WA.room.onEnterLayer(layerVoteOffice).subscribe(() => {
-        console.log(labelVoteOffice, WA.state.voteOffice)
+//        console.log(labelVoteOffice, WA.state.voteOffice)
         WA.state.voteOffice++
     })
     WA.room.onLeaveLayer(layerVoteOffice).subscribe(() => {
-        console.log(labelVoteOffice, WA.state.voteOffice)
+//        console.log(labelVoteOffice, WA.state.voteOffice)
         if (WA.state.voteOffice === 0) return
     })
     
     WA.room.onEnterLayer(layerVoteTrain).subscribe(() => {
-        console.log(labelVoteTrain, WA.state.voteTrain)
+//        console.log(labelVoteTrain, WA.state.voteTrain)
         WA.state.voteTrain++
     })
     WA.room.onLeaveLayer(layerVoteTrain).subscribe(() => {
-        console.log(labelVoteTrain, WA.state.voteTrain)
+//        console.log(labelVoteTrain, WA.state.voteTrain)
         if (WA.state.voteTrain === 0) return
     })
     
     WA.room.onEnterLayer(layerVoteWorkshop).subscribe(() => {
-        console.log(labelVoteWorkshop, WA.state.voteWorkshop)
+//        console.log(labelVoteWorkshop, WA.state.voteWorkshop)
         WA.state.voteWorkshop++
     })
     WA.room.onLeaveLayer(layerVoteWorkshop).subscribe(() => {
-        console.log(labelVoteWorkshop, WA.state.voteWorkshop)
+//        console.log(labelVoteWorkshop, WA.state.voteWorkshop)
         if (WA.state.voteWorkshop === 0) return
     })
     
     WA.room.onEnterLayer(layerVoteOutside).subscribe(() => {
-        console.log(labelVoteOutside, WA.state.voteOutside)
+//        console.log(labelVoteOutside, WA.state.voteOutside)
         WA.state.voteOutside++
     })
     WA.room.onLeaveLayer(layerVoteOutside).subscribe(() => {
-        console.log(labelVoteOutside, WA.state.voteOutside)
+//        console.log(labelVoteOutside, WA.state.voteOutside)
         if (WA.state.voteOutside === 0) return
     })
 
@@ -509,12 +517,4 @@ WA.onInit().then(async () => {
                 })
             }]);
     })
-        
-
-    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
-    bootstrapExtra()
-    .then(() => {
-        console.log("Scripting API Extra ready")
-        
-    }).catch(e => console.error(e))
 }).catch(e => console.error(e))
