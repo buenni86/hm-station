@@ -35,7 +35,7 @@ var labelDo = "Ja!";
 var labelDont = "Kein Interesse";
 var labelAbortVoting = "Voting abbrechen";
 
-//var layerImportance = "popUpImportance";
+
 var popUpImportance = "importance";
 var msgImportance = "Willkommen beim Voting. Lass uns direkt loslegen:\n\nWas ist dir wichtig?\n\nSpringe in das jeweilige Portal, um deine Stimme abzugeben.";
 
@@ -60,12 +60,49 @@ var url3rdRoom = "../db/hm-bahnhof#specialZones/voting/entry3rdRoom";
 var url4thRoom = "../db/hm-bahnhof#specialZones/voting/entry4thRoom";
 var urlVotingExit = "../db/hm-bahnhof#specialZones/voting/votingExit";
 
+
+var layerTime = "popUpTime";
+var popUpTime = "time";
+var msgTime = "Bei der Bahn hast du immer geregelte Arbeitszeiten."
+
+var layerVacation = "popUpVacation";
+var popUpVacation = "vacation";
+var msgVacation = "Wusstest du eigentlich, dass du als DB Mitarbeiter zwischen 30/36/42 Urlaubstagen auswählen kannst?"
+
 function closePopUp(){
     if (currentPopup !== undefined) {
         currentPopup.close();
         currentPopup = undefined;
     }
 }
+
+WA.room.onLeaveLayer(layerTime).subscribe(() => {
+    closePopUp();
+})
+
+WA.room.onEnterLayer(layerTime).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpTime, msgTime,[
+        {
+             label: labelClose,
+             callback: (popup => {
+                 closePopUp();
+             })
+         }]);
+ })
+
+ WA.room.onLeaveLayer(layerVacation).subscribe(() => {
+    closePopUp();
+})
+
+WA.room.onEnterLayer(layerVacation).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpVacation, msgVacation,[
+        {
+             label: labelClose,
+             callback: (popup => {
+                 closePopUp();
+             })
+         }]);
+ })
 
 WA.room.onLeaveLayer(layerJobs1).subscribe(() => {
     closePopUp();
