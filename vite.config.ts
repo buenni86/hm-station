@@ -11,7 +11,7 @@ export default defineConfig({
                 result_importance: "./src/result_importance.html",
                 result_location: "./src/result_location.html",
                 worldmap: "./src/worldmap.html",
-                flyer: "./src/flyer",
+                firstflyer: "./public/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf",
                 ...getMapsScripts("./maps"),
             },
         },
