@@ -63,11 +63,11 @@ var urlVotingExit = "../db/hm-bahnhof#specialZones/voting/votingExit";
 
 var layerTime = "popUpTime";
 var popUpTime = "time";
-var msgTime = "Bei der Bahn hast du immer geregelte Arbeitszeiten."
+var msgTime = "Bei der Bahn hast du immer geregelte Arbeitszeiten.";
 
 var layerVacation = "popUpVacation";
 var popUpVacation = "vacation";
-var msgVacation = "Wusstest du eigentlich, dass du als DB Mitarbeiter zwischen 30/36/42 Urlaubstagen auswählen kannst?"
+var msgVacation = "Wusstest du eigentlich, dass du bei der DB 28 Tage Urlaub bekommst?";
 
 function closePopUp(){
     if (currentPopup !== undefined) {

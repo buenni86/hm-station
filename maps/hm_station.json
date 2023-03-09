@@ -6321,7 +6321,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"(https:\/\/ambientmelancholy.itch.io\/count-together"
+                         "value":"https:\/\/ambientmelancholy.itch.io\/count-together"
                         }],
                  "rotation":0,
                  "visible":true,
