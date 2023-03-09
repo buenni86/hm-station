@@ -5898,9 +5898,14 @@
                  "name":"flyerDualStudies",
                  "properties":[
                         {
+                         "name":"allowApi",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":".\/NW101_DualesStudium_Flyer_105x195_digital-data.pdf"
+                         "value":"NW101_DualesStudium_Flyer_105x195_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -5983,9 +5988,14 @@
                  "name":"flyerServiceIT2",
                  "properties":[
                         {
+                         "name":"allowApi",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":".\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
+                         "value":"NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -6190,9 +6200,14 @@
                  "name":"flyerTechAppr1",
                  "properties":[
                         {
+                         "name":"allowApi",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":".\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
+                         "value":"NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -6224,9 +6239,14 @@
                  "name":"flyerTrafficAppr",
                  "properties":[
                         {
+                         "name":"allowApi",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":".\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
+                         "value":"NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
