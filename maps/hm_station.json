@@ -6474,6 +6474,23 @@
                  "width":220.000333333333,
                  "x":-0.00016666666668641,
                  "y":445.83335
+                }, 
+                {
+                 "class":"area",
+                 "height":220,
+                 "id":101,
+                 "name":"tutorial",
+                 "properties":[
+                        {
+                         "name":"openWebsite",
+                         "type":"string",
+                         "value":"https:\/\/www.youtube-nocookie.com\/embed\/1whBT2SdMFc"
+                        }],
+                 "rotation":0,
+                 "visible":true,
+                 "width":1100.667,
+                 "x":1351.6665,
+                 "y":1980
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -7792,7 +7809,7 @@
          "name":"trains_top",
          "opacity":1,
          "type":"group",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -8348,7 +8365,7 @@
          "name":"voting_top_closed",
          "opacity":1,
          "type":"group",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -8909,7 +8926,7 @@
          "y":0
         }],
  "nextlayerid":122,
- "nextobjectid":101,
+ "nextobjectid":102,
  "orientation":"orthogonal",
  "properties":[
         {
