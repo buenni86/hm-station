@@ -5905,7 +5905,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"NW101_DualesStudium_Flyer_105x195_digital-data.pdf"
+                         "value":"..\/public\/NW101_DualesStudium_Flyer_105x195_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
