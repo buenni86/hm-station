@@ -6211,7 +6211,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/src\/flyer\/NW101_DualesStudium_Flyer_105x195_digital-data.pdf"
+                         "value":"https:\/\/buenni86.github.io\/hm-station\/NW101_DualesStudium_Flyer_105x195_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -6301,7 +6301,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
+                         "value":"https:\/\/buenni86.github.io\/hm-station\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -6513,7 +6513,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
+                         "value":"https:\/\/buenni86.github.io\/hm-station\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
@@ -6552,7 +6552,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
+                         "value":"https:\/\/buenni86.github.io\/hm-station\/NW100_Azubi_Flyer_105x195_NEU_digital-data.pdf"
                         }],
                  "rotation":0,
                  "visible":true,
