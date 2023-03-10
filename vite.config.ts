@@ -11,7 +11,6 @@ export default defineConfig({
                 result_importance: "./src/result_importance.html",
                 result_location: "./src/result_location.html",
                 worldmap: "./src/worldmap.html",
-                flyer1: "./src/flyer/NW101_DualesStudium_Flyer_105x195_digital-data.pdf",
                 ...getMapsScripts("./maps"),
             },
         },
