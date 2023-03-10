@@ -4,6 +4,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 console.log('Script started successfully');
 
 var currentPopup = undefined;
+var doVotingPopup = undefined;
 var isCoWebSiteOpened =  false;
 
 var labelClose = "Schließen";
@@ -63,21 +64,42 @@ var urlVotingExit = "../db/hm-bahnhof#specialZones/voting/votingExit";
 
 var layerTime = "popUpTime";
 var popUpTime = "time";
-var msgTime = "Bei der Bahn hast du immer geregelte Arbeitszeiten.";
+var msgTime = "Wusstest du eigentlich, dass du bei der Bahn immer geregelte Arbeitszeiten hast?";
 
 var layerVacation = "popUpVacation";
 var popUpVacation = "vacation";
 var msgVacation = "Wusstest du eigentlich, dass du bei der DB 28 Tage Urlaub bekommst?";
 
-function closePopUp(){
-    if (currentPopup !== undefined) {
-        currentPopup.close();
-        currentPopup = undefined;
+var layerGarantueedAcquisition = "popUpAcquisition";
+var popUpGarantueedAcquisition = "garantueedAcquisition";
+var msgGarantueedAcquisition = "Wusstest du eigentlich, dass deine Übernahme bei der DB garantiert wird?";
+
+var layerContact = "popUpContact";
+var popUpContact = "contact";
+var msgContact = "Wusstest du eigentlich, dass dir bei der Bahn zu jeder Zeit ein Ansprechpartner zur Seite steht?";
+
+var layerTickets = "popUpTickets";
+var popUpTickets = "tickets";
+var msgTickets = "Wusstest du eigentlich, dass du bei der Bahn Freifahrten in ganz Deutschland erhältst?";
+
+var layerChest = "popUpChest";
+var popUpChest = "chest";
+var msgChest = "Wusstest du eigentlich, dass dir die Bahn eine attraktive Vergütung bietet?";
+
+var layerPercent = "popUpPercent";
+var popUpPercent = "percent";
+var msgPercent = "Wusstest du eigentlich, dass du bei der Bahn diverse Vergünstigungen in den Bereichen Shopping, Freizeit, Reisen und Bahn erhältst?";
+
+
+function closePopUp(currPopup){
+    if (currPopup !== undefined) {
+        currPopup.close();
+        currPopup = undefined;
     }
 }
 
 WA.room.onLeaveLayer(layerTime).subscribe(() => {
-    closePopUp();
+    closePopUp(currentPopup)
 })
 
 WA.room.onEnterLayer(layerTime).subscribe(() => {
@@ -85,27 +107,97 @@ WA.room.onEnterLayer(layerTime).subscribe(() => {
         {
              label: labelClose,
              callback: (popup => {
-                 closePopUp();
+                 closePopUp(currentPopup)
              })
          }]);
  })
 
- WA.room.onLeaveLayer(layerVacation).subscribe(() => {
-    closePopUp();
+WA.room.onLeaveLayer(layerVacation).subscribe(() => {
+    closePopUp(currentPopup)
 })
 
 WA.room.onEnterLayer(layerVacation).subscribe(() => {
     currentPopup =  WA.ui.openPopup(popUpVacation, msgVacation,[
         {
-             label: labelClose,
-             callback: (popup => {
-                 closePopUp();
-             })
-         }]);
- })
+            label: labelClose,
+            callback: (popup => {
+                closePopUp(currentPopup)
+            })
+        }]);
+})
+
+WA.room.onLeaveLayer(layerGarantueedAcquisition).subscribe(() => {
+    closePopUp(currentPopup)
+})
+
+WA.room.onEnterLayer(layerGarantueedAcquisition).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpGarantueedAcquisition, msgGarantueedAcquisition,[
+        {
+            label: labelClose,
+            callback: (popup => {
+                closePopUp(currentPopup)
+            })
+        }]);
+})
+
+WA.room.onLeaveLayer(layerContact).subscribe(() => {
+    closePopUp(currentPopup)
+})
+
+WA.room.onEnterLayer(layerContact).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpContact, msgContact,[
+        {
+            label: labelClose,
+            callback: (popup => {
+                closePopUp(currentPopup)
+            })
+        }]);
+})
+
+WA.room.onLeaveLayer(layerTickets).subscribe(() => {
+    closePopUp(currentPopup)
+})
+
+WA.room.onEnterLayer(layerTickets).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpTickets, msgTickets,[
+        {
+            label: labelClose,
+            callback: (popup => {
+                closePopUp(currentPopup)
+            })
+        }]);
+})
+
+WA.room.onLeaveLayer(layerChest).subscribe(() => {
+    closePopUp(currentPopup)
+})
+
+WA.room.onEnterLayer(layerChest).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpChest, msgChest,[
+        {
+            label: labelClose,
+            callback: (popup => {
+                closePopUp(currentPopup)
+            })
+        }]);
+})
+
+WA.room.onLeaveLayer(layerPercent).subscribe(() => {
+    closePopUp(currentPopup)
+})
+
+WA.room.onEnterLayer(layerPercent).subscribe(() => {
+    currentPopup =  WA.ui.openPopup(popUpPercent, msgPercent,[
+        {
+            label: labelClose,
+            callback: (popup => {
+                closePopUp(currentPopup)
+            })
+        }]);
+})
 
 WA.room.onLeaveLayer(layerJobs1).subscribe(() => {
-    closePopUp();
+    closePopUp(currentPopup)
 })
  
 WA.room.onEnterLayer(layerJobs1).subscribe(() => {
@@ -114,19 +206,19 @@ WA.room.onEnterLayer(layerJobs1).subscribe(() => {
             label: labelJobs,
             callback: (popup => {
                 WA.nav.openTab(urlJobs);
-                closePopUp();
+                closePopUp(currentPopup)
             })
         },
         {
             label: labelClose,
             callback: (popup => {
-                closePopUp();
+                closePopUp(currentPopup)
             })
         }]);
 })
 
 WA.room.onLeaveLayer(layerJobs2).subscribe(() => {
-    closePopUp();
+    closePopUp(currentPopup)
 })
 
 WA.room.onEnterLayer(layerJobs2).subscribe(() => {
@@ -135,19 +227,19 @@ WA.room.onEnterLayer(layerJobs2).subscribe(() => {
              label: labelJobs,
              callback: (popup => {
                  WA.nav.openTab(urlJobs);
-                 closePopUp();
+                 closePopUp(currentPopup)
              })
          },
          {
              label: labelClose,
              callback: (popup => {
-                 closePopUp();
+                 closePopUp(currentPopup)
              })
          }]);
  })
 
 WA.room.onLeaveLayer(layerJobProfiler).subscribe(() => {
-    closePopUp();
+    closePopUp(currentPopup)
 })
 
 WA.room.onEnterLayer(layerJobProfiler).subscribe(() => {
@@ -156,19 +248,19 @@ WA.room.onEnterLayer(layerJobProfiler).subscribe(() => {
              label: labelJobProfiler,
              callback: (popup => {
                  WA.nav.openTab(urlJobProfiler);
-                 closePopUp();
+                 closePopUp(currentPopup)
              })
          },
          {
              label: labelClose,
              callback: (popup => {
-                 closePopUp();
+                 closePopUp(currentPopup)
              })
          }]);
  })
 
 WA.room.onLeaveLayer(layerMeetUs).subscribe(() => {
-    closePopUp();
+    closePopUp(currentPopup)
 })
 
 WA.room.onEnterLayer(layerMeetUs).subscribe(() => {
@@ -177,24 +269,28 @@ WA.room.onEnterLayer(layerMeetUs).subscribe(() => {
              label: labelMeetUs,
              callback: (popup => {
                  WA.nav.openTab(urlMeetUs);
-                 closePopUp();
+                 closePopUp(currentPopup)
              })
          },
          {
              label: labelClose,
              callback: (popup => {
-                 closePopUp();
+                 closePopUp(currentPopup)
              })
          }]);
 })
 
+WA.room.onLeaveLayer(layerDoVoting).subscribe(() => {
+    closePopUp(doVotingPopup);
+})
+
 WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
     if (!WA.player.state.hasVoted) {
-        currentPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
+        doVotingPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
             {
                 label: labelDo,
                 callback: (popup => {
-                    closePopUp();
+                    closePopUp(doVotingPopup)
                     WA.player.state.hasVoted = true;    // players shall only vote once
                     init1stRoom();
                     WA.nav.goToRoom(url1stRoom);
@@ -203,7 +299,7 @@ WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
             {
                 label: labelDont,
                 callback: (popup => {
-                    closePopUp();
+                    closePopUp(doVotingPopup)
                 })
         }]);
     }    
@@ -345,19 +441,19 @@ function init1stRoom() {
     WA.room.showLayer(roofLayerMain);
     WA.room.showLayer(openRoofLayer1);
 
-    if (currentPopup != null) closePopUp();
+    if (currentPopup != null) closePopUp(currentPopup)
 
     currentPopup =  WA.ui.openPopup(popUpImportance, msgImportance,[
         {
             label: labelClose,
             callback: (popup => {
-                closePopUp();
+                closePopUp(currentPopup)
             })
         },
         {
             label: labelAbortVoting,
             callback: (popup => {
-                closePopUp();
+                closePopUp(currentPopup)
                 abortVoting();
             })
         }]);
@@ -376,19 +472,19 @@ function init2ndRoom() {
     // enter next room
     WA.nav.goToRoom(url2ndRoom);
 
-    if (currentPopup != null) closePopUp();
+    if (currentPopup != null) closePopUp(currentPopup)
 
     currentPopup =  WA.ui.openPopup(popUpImportanceResult, msgImportanceResult,[
         {
             label: labelCool,
             callback: (popup => {
-                closePopUp();
+                closePopUp(currentPopup)
             })
         },
         {
             label: labelAbortVoting,
             callback: (popup => {
-                closePopUp();
+                closePopUp(currentPopup)
                 abortVoting();
             })
         }]);
@@ -407,19 +503,19 @@ function init3rdRoom() {
     // enter next room
     WA.nav.goToRoom(url3rdRoom);
 
-    if (currentPopup != null) closePopUp();
+    if (currentPopup != null) closePopUp(currentPopup)
 
     currentPopup =  WA.ui.openPopup(popUpJobLocation, msgJobLocation,[
     {
         label: labelClose,
         callback: (popup => {
-            closePopUp();
+            closePopUp(currentPopup)
         })
     },
     {
         label: labelAbortVoting,
         callback: (popup => {
-            closePopUp();
+            closePopUp(currentPopup)
             abortVoting();
         })
     }]);
@@ -438,26 +534,26 @@ function init4thRoom() {
     // enter next room
     WA.nav.goToRoom(url4thRoom);
 
-    if (currentPopup != null) closePopUp();
+    if (currentPopup != null) closePopUp(currentPopup)
 
     currentPopup = WA.ui.openPopup(popUpJobLocationResult, msgJobLocationResult,[
     {
         label: labelShowJobs,
         callback: (popup => {
             WA.nav.openTab(urlJobs2);
-            closePopUp();
+            closePopUp(currentPopup)
         })
     },
     {
         label: labelClose,
         callback: (popup => {
-            closePopUp();
+            closePopUp(currentPopup)
         })
     },
     {
         label: labelAbortVoting,
         callback: (popup => {
-            closePopUp();
+            closePopUp(currentPopup)
             abortVoting();
         })
     }]);
