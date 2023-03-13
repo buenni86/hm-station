@@ -76,7 +76,7 @@ var msgGarantueedAcquisition = "Wusstest du eigentlich, dass deine Übernahme be
 
 var layerContact = "popUpContact";
 var popUpContact = "contact";
-var msgContact = "Wusstest du eigentlich, dass dir bei der Bahn zu jeder Zeit ein Ansprechpartner zur Seite steht?";
+var msgContact = "Wusstest du eigentlich, dass dir bei der Bahn zu jeder Zeit eine Ansprechperson zur Seite steht?";
 
 var layerTickets = "popUpTickets";
 var popUpTickets = "tickets";
