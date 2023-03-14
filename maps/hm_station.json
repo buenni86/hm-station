@@ -6638,7 +6638,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"https:\/\/db.jobs\/de-de\/bewerbungstipps\/schueler"
+                         "value":"https:\/\/db.jobs\/de-de\/bewerbungstipps"
                         }],
                  "rotation":0,
                  "visible":true,
