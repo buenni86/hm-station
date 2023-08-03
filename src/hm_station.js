@@ -61,6 +61,7 @@ var url3rdRoom = "../db/hm-bahnhof#specialZones/voting/entry3rdRoom";
 var url4thRoom = "../db/hm-bahnhof#specialZones/voting/entry4thRoom";
 var urlVotingExit = "../db/hm-bahnhof#specialZones/voting/votingExit";
 
+var urlPolling = "../src/worldmap.html";
 
 var layerTime = "popUpTime";
 var popUpTime = "time";
@@ -565,6 +566,16 @@ WA.onInit().then(async () => {
     .then(() => {
         console.log("Scripting API Extra ready")        
     }).catch(e => console.error(e))
+
+/*    var playerHasPolled = await WA.player.state.hasPolled;
+    console.log("Player has polled: ", playerHasPolled);
+    const coWebsite = await WA.nav.openCoWebSite('https://www.wikipedia.org/');
+    if(!playerHasPolled) {
+        //WA.player.state.hasPolled = true;
+        const coWebsiteWorkAdventure = await WA.nav.openCoWebSite('https://workadventu.re/', true, "", 70, 1, true, true);
+        coWebsite.close();
+    }
+*/
 
     var layerVoteAcq = "specialZones/voting/acquisitionVoting";
     var layerVoteMoney = "specialZones/voting/moneyVoting";
