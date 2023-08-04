@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            html {font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+            body {background-color: #008984;
+                text-align: center;
+                display: inline;}
+            h1, h2, h3, p, form   {color: whitesmoke;}
+            label {background-color: #9fd45f;
+                margin: 2px;
+                padding: 2%;
+                border-radius: 5px;
+                display: inline-block;
+                width: 80%;}
+            label:hover{background-color: #061350;}
+            input[type="radio"]{display: none;}
+            input[type="radio"]:checked+label{font-weight: bold;
+                background-color: #061350;}
+            input[type="submit"]{background-color: #9fd45f;
+                color: whitesmoke;
+                font-size: medium;
+                border-style: none;
+                border-radius: 5px;
+                margin: 2px;
+                padding: 2%;}
+            input[type="submit"]:hover{font-weight: bold;}
+        </style>
+        <title>Kurzumfrage</title>
+    </head>
+    <body>
+        <h1>Herzlich Willkommen bei<br>
+            Level up your future@DB
+        </h1><br>
+        <h3>
+            Bitte beantworte uns kurz eine Frage:
+        </h3>
+        <h2>
+            Welche der folgenden Bezeichnungen trifft auf dich zu?
+        </h2>
+        <form action="/action_page.php">
+            <input type="radio" id="school" name="status" value="school">
+            <label for="school">Schüler:in</label><br>
+            <input type="radio" id="student" name="status" value="student">
+            <label for="student">Student:in</label><br>
+            <input type="radio" id="parent" name="status" value="parent">
+            <label for="parent">Elternteil / Erziehungsberechtige:r</label><br>
+            <input type="radio" id="teacher" name="status" value="teacher">
+            <label for="teacher">Lehrkraft</label><br>
+            <input type="radio" id="jobconsultant" name="status" value="jobconsultant">
+            <label for="jobconsultant">Berufsberater:in</label><br>
+            <input type="radio" id="other" name="status" value="other">
+            <label for="other">Anderes</label><br>
+            <input type="radio" id="none" name="status" value="none">
+            <label for="none">keine Angabe</label><br><br><br>
+            <input type="submit" value="Absenden">
+        </form>
+    </body>
+</html>
