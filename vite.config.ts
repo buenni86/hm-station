@@ -12,6 +12,8 @@ export default defineConfig({
                 result_location: "./src/result_location.html",
                 worldmap: "./src/worldmap.html",
                 userpoll: "./src/userpoll.html",
+                tutorial: "./src/tutorial.html",
+                style: "./src/style.css",
                 ...getMapsScripts("./maps"),
             },
         },

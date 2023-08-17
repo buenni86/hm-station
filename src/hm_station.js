@@ -21,7 +21,7 @@ var layerJobProfiler = "popUpJobProfiler";
 var popUpJobProfiler = "jobProfiler";
 var msgJobProfiler = "Du weißt noch nicht, wohin es gehen soll?";
 var labelJobProfiler = "Finde es hier heraus!";
-var urlJobProfiler = "https://ausbildung-deutschebahn.com/jobprofiler/?utm_source=Careerpage&utm_medium=organic_Linkout&utm_campaign=Rec_Jobprofiler&utm_term=bundesweit_Azubi";
+var urlJobProfiler = "https://jobkompass.db.jobs/";
 
 var layerMeetUs = "popUpMeetUs";
 var popUpMeetUs = "meetUs";
@@ -255,7 +255,7 @@ WA.room.onEnterLayer(layerJobProfiler).subscribe(() => {
          {
              label: labelClose,
              callback: (popup => {
-                 closePopUp(currentPopup)
+                closePopUp(currentPopup)
              })
          }]);
  })

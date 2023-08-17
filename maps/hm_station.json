@@ -7034,14 +7034,14 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"https:\/\/www.youtube-nocookie.com\/embed\/1whBT2SdMFc"
+                         "value":"..\/src\/tutorial.html"
                         }],
                  "rotation":0,
                  "type":"area",
                  "visible":true,
                  "width":1100.667,
-                 "x":1351.6665,
-                 "y":1980
+                 "x":1355.6665,
+                 "y":1976.66666666667
                 }, 
                 {
                  "height":105.333,
@@ -7256,7 +7256,7 @@
                  "visible":true,
                  "width":1100.67,
                  "x":1353.665,
-                 "y":1982
+                 "y":1948
                 }],
          "opacity":1,
          "type":"objectgroup",
