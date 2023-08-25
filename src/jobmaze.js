@@ -24,6 +24,12 @@ WA.room.area.onEnter("2").subscribe(() => {
     WA.player.state.currPlatform = 2;
 })
 
+function updateCam() {
+    const subscription = WA.camera.onCameraUpdate().subscribe((worldView) => console.log(worldView));
+//later...
+subscription.unsubscribe();
+}
+
 function addButtons() {
     addResetButton();
     addBackButton();
@@ -51,7 +57,7 @@ function addBackButton() {
         label: 'Zurück',
 //        toolTip: 'Gehe zurück zum Anfang',
         callback: (event) => {
-            WA.nav.goToRoom("../db/hm-joblabyrinth");
+            WA.player.moveTo(3839,3583)
         }
     })
 }
@@ -76,7 +82,7 @@ function addStopButton() {
         label: 'zur Hauptmap',
 //        toolTip: 'Gehe zurück zum Anfang',
         callback: (event) => {
-            WA.nav.goToRoom("../db/hm-bahnhof");
+            WA.nav.goToRoom("../db/hm-bahnhof#specialZones/enterFromLabyrinth");
         }
     })
 }
