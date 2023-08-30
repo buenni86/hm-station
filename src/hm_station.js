@@ -3,8 +3,8 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 //bootstrapExtra();
 console.log('Script started successfully');
 
-var currentPopup = undefined;
-var doVotingPopup = undefined;
+let currentPopup = undefined;
+let doVotingPopup = undefined;
 var isCoWebSiteOpened =  false;
 
 var labelClose = "Schließen";
@@ -104,11 +104,11 @@ WA.room.onLeaveLayer(layerTime).subscribe(() => {
 })
 
 WA.room.onEnterLayer(layerTime).subscribe(() => {
-    currentPopup =  WA.ui.openPopup(popUpTime, msgTime,[
+    currentPopup = WA.ui.openPopup(popUpTime, msgTime,[
         {
              label: labelClose,
              callback: (popup => {
-                 closePopUp(currentPopup)
+                closePopUp(currentPopup)                
              })
          }]);
  })
@@ -118,7 +118,7 @@ WA.room.onLeaveLayer(layerVacation).subscribe(() => {
 })
 
 WA.room.onEnterLayer(layerVacation).subscribe(() => {
-    currentPopup =  WA.ui.openPopup(popUpVacation, msgVacation,[
+    currentPopup = WA.ui.openPopup(popUpVacation, msgVacation,[
         {
             label: labelClose,
             callback: (popup => {
@@ -261,24 +261,25 @@ WA.room.onEnterLayer(layerJobProfiler).subscribe(() => {
  })
 
 WA.room.onLeaveLayer(layerMeetUs).subscribe(() => {
-    closePopUp(currentPopup)
+    closePopUp(currentPopup);
 })
 
 WA.room.onEnterLayer(layerMeetUs).subscribe(() => {
-    currentPopup =  WA.ui.openPopup(popUpMeetUs, msgMeetUs,[
-         {
-             label: labelMeetUs,
-             callback: (popup => {
-                 WA.nav.openTab(urlMeetUs);
-                 closePopUp(currentPopup)
-             })
-         },
-         {
-             label: labelClose,
-             callback: (popup => {
-                 closePopUp(currentPopup)
-             })
-         }]);
+    currentPopup = WA.ui.openPopup(popUpMeetUs, msgMeetUs,[
+        {
+            label: labelMeetUs,
+            callback: (popup => {
+                WA.nav.openTab(urlMeetUs);
+                closePopUp(currentPopup);
+            })
+        },
+        {
+            label: labelClose,
+            callback: (popup => {
+                closePopUp(meetUsPopUp)
+                //popup.close();
+            })
+        }]);
 })
 
 WA.room.onLeaveLayer(layerDoVoting).subscribe(() => {
