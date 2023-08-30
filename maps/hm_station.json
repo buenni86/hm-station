@@ -6974,28 +6974,6 @@
                  "y":443.166683333333
                 }, 
                 {
-                 "height":2540,
-                 "id":47,
-                 "name":"map",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"..\/src\/worldmap.html"
-                        }, 
-                        {
-                         "name":"openWebsiteTrigger",
-                         "type":"string",
-                         "value":"onicon"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":false,
-                 "width":3832,
-                 "x":4,
-                 "y":8
-                }, 
-                {
                  "height":105.333333333333,
                  "id":48,
                  "name":"programmZone3",

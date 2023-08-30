@@ -6,6 +6,7 @@ console.log('Script started successfully');
 let currentPopup = undefined;
 let doVotingPopup = undefined;
 var isCoWebSiteOpened =  false;
+var currentWebsite = undefined;
 
 var labelClose = "Schließen";
 
@@ -560,6 +561,22 @@ function init4thRoom() {
         })
     }]);
 }
+
+// insert minimap
+WA.ui.actionBar.addButton({
+    id:"minimap",
+    type:"action",
+    imageSrc:"https://buenni86.github.io/hm-station/map_logo.png",
+    toolTip:"Minimap",
+    callback: async () => {
+        if (currentWebsite !== undefined) {
+            currentWebsite.close();
+            currentWebsite = undefined;
+        } else {
+            currentWebsite = await WA.nav.openCoWebSite("../minimap.html",true);
+        }
+    }
+})
 
 WA.onInit().then(async () => {
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
