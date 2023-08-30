@@ -45,7 +45,7 @@ function addResetButton() {
         label: 'Reset',
 //        toolTip: 'Gehe zurück zum Anfang',
         callback: (event) => {
-            WA.nav.goToRoom("../db/hm-joblabyrinth");
+            WA.nav.goToRoom("../dbevents/hm-joblabyrinth");
         }
     })
 }
@@ -82,7 +82,7 @@ function addStopButton() {
         label: 'zur Hauptmap',
 //        toolTip: 'Gehe zurück zum Anfang',
         callback: (event) => {
-            WA.nav.goToRoom("../db/hm-bahnhof#specialZones/enterFromLabyrinth");
+            WA.nav.goToRoom("../dbevents/hm-bahnhof#specialZones/enterFromLabyrinth");
         }
     })
 }
