@@ -1,7 +1,7 @@
 {
     "tafel": {
         "misc": {
-            "header": "Zeitplan Zukunftswochen",
+            "header": "Zeitplan: Level Up Your Future",
             "gelbeLeiste":{
                 "col1":"Zeit",
                 "col2":"Ziel",
@@ -13,68 +13,57 @@
         "content": [
             {"eintrag": {
                 "col1":{
+                    "zeit":"14:00 - 18:00",
+                    "zugnummer":"Mo - Mi"
+                },
+                "col2": "Tägliches Beratungsangebot\nIm Raum \"Dein Einstieg bei der DB\"",
+                "col3":{
+                    "to":"https://coremeet.workadventu.re/c1ncu2-networking-lounge",
+                    "title":"Networking Lounge"
+                }
+            }},
+            {"eintrag": {
+                "col1":{
+                    "zeit":"10:00 - 14:00",
+                    "zugnummer":"Do - Fr"
+                },
+                "col2": "Tägliches Beratungsangebot\nIm Raum \"Dein Einstieg bei der DB\"",
+                "col3":{
+                    "to":"https://coremeet.workadventu.re/c1ncu2-networking-lounge",
+                    "title":"Networking Lounge"
+                }
+            }},
+            {"eintrag": {
+                "col1":{
                     "zeit":"18:00 - 19:00",
-                    "zugnummer":"20.03.2023"
+                    "zugnummer":"05.10.2023"
                 },
                 "col2": "Infoabend für Eltern und Lehrkräfte",
                 "col3":{
-                    "to":"https://coremeet.workadventu.re/b9snar-hauptbuhne",
-                    "title":"Hauptbühne"
-                }
-            }},
-            {"eintrag": {
-                "col1":{
-                    "zeit":"15:30 - 17:30",
-                    "zugnummer":"20.03.2023"
-                },
-                "col2": "Vorstellung gewerblich-technische Ausbildungsberufe",
-                "col3":{
-                    "to":"https://coremeet.workadventu.re/b9snar-hauptbuhne",
-                    "title":"Hauptbühne"
-                }
-            }},
-            {"eintrag": {
-                "col1":{
-                    "zeit":"15:30 - 17:30",
-                    "zugnummer":"21.03.2023"
-                },
-                "col2": "Vorstellung der Dualen Studiengänge in den Bereichen Ingenieurwesen, BWL und IT",
-                "col3":{
-                    "to":"https://coremeet.workadventu.re/b9snar-hauptbuhne",
-                    "title":"Hauptbühne"
-                }
-            }},
-            {"eintrag": {
-                "col1":{
-                    "zeit":"15:30 - 17:30",
-                    "zugnummer":"22.03.2023"
-                },
-                "col2": "Vorstellung Verkehrsberufe",
-                "col3":{
-                    "to":"https://coremeet.workadventu.re/b9snar-hauptbuhne",
-                    "title":"Hauptbühne"
-                }
-            }},
-            {"eintrag": {
-                "col1":{
-                    "zeit":"15:30 - 17:30",
-                    "zugnummer":"23.03.2023"
-                },
-                "col2": "Vorstellung kaufmännisch-serviceorientierte und IT-Berufe",
-                "col3":{
-                    "to":"https://coremeet.workadventu.re/b9snar-hauptbuhne",
-                    "title":"Hauptbühne"
+                    "to":"https://coremeet.workadventu.re/c1ncu2-networking-lounge",
+                    "title":"Networking Lounge"
                 }
             }},
             {"eintrag": {
                 "col1":{
                     "zeit":"16:00 - 17:00",
-                    "zugnummer":"24.03.2023"
+                    "zugnummer":"11.10.2023"
                 },
-                "col2": "Infoabend für Eltern und Lehrkräfte",
+                "col2": "Frag die Azubis - Ein Blick hinter die Kulissen bei der DB!",
                 "col3":{
-                    "to":"https://coremeet.workadventu.re/b9snar-hauptbuhne",
-                    "title":"Hauptbühne"
+                    "to":"https://coremeet.workadventu.re/c1ncu2-networking-lounge",
+                    "title":"Networking Lounge"
+                }
+            }},
+            {"eintrag": {
+                "col1":{
+                    "zeit":"17:30 - 19:00",
+                    "zugnummer":"11.10.2023"
+                },
+                "col2": "Frag die Dualis - Ein Blick hinter die Kulissen bei der DB!",
+                "col3":{
+                    "to":"https://coremeet.workadventu.re/c1ncu2-networking-lounge",
+                    "title":"Networking Lounge"
                 }
             }}
         ]
