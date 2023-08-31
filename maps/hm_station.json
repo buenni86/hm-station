@@ -6145,6 +6145,197 @@
                  "width":313.64,
                  "x":1335.18,
                  "y":490.8335
+                }, 
+                {
+                 "height":0,
+                 "id":130,
+                 "name":"school",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"readableBy",
+                         "type":"string",
+                         "value":"admin"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2341.5,
+                 "y":2407.5
+                }, 
+                {
+                 "height":0,
+                 "id":131,
+                 "name":"student",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"readableBy",
+                         "type":"string",
+                         "value":"admin"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2342,
+                 "y":2441.5
+                }, 
+                {
+                 "height":0,
+                 "id":132,
+                 "name":"parent",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"readableBy",
+                         "type":"string",
+                         "value":"admin"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2342,
+                 "y":2477
+                }, 
+                {
+                 "height":0,
+                 "id":133,
+                 "name":"teacher",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"readableBy",
+                         "type":"string",
+                         "value":"admin"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2343.5,
+                 "y":2515.5
+                }, 
+                {
+                 "height":0,
+                 "id":134,
+                 "name":"jobconsultant",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"readableBy",
+                         "type":"string",
+                         "value":"admin"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2388.5,
+                 "y":2413.5
+                }, 
+                {
+                 "height":0,
+                 "id":135,
+                 "name":"other",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"readableBy",
+                         "type":"string",
+                         "value":"admin"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2388,
+                 "y":2459
+                }, 
+                {
+                 "height":0,
+                 "id":136,
+                 "name":"none",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2390.5,
+                 "y":2501
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -6808,6 +6999,7 @@
          "class":"area",
          "draworder":"topdown",
          "id":13,
+         "locked":true,
          "name":"jitsiZones",
          "objects":[
                 {
@@ -10028,7 +10220,7 @@
          "y":0
         }],
  "nextlayerid":129,
- "nextobjectid":130,
+ "nextobjectid":137,
  "orientation":"orthogonal",
  "properties":[
         {
