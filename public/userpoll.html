@@ -35,7 +35,7 @@
             </form>
 
             <script>
-                function savePollResult() {
+                async function savePollResult() {
                     let schoolId = "school";
                     let studentId = "student";
                     let parentId = "parent";
@@ -44,41 +44,43 @@
                     let otherId = "other";
                     let noneId = "none";
 
-                    
-                    WA.nav.goToPage("https://buenni86.github.io/hm-station/userpoll_fin.html");
+                    WA.onInit().tehn(async () => {
+                        if(document.getElementById(schoolId).checked) {
+                            let currVal = WA.state.loadVariable(schoolId);
+                            WA.state.saveVariable(schoolId, currVal+1);
 
-                    if(document.getElementById(schoolId).checked) {
-                        let currVal = WA.state.loadVariable(schoolId);
-                        WA.state.saveVariable(schoolId, currVal+1)
+                        } else if(document.getElementById(studentId).checked) {
+                            let currVal = WA.state.loadVariable(studentId);
+                            WA.state.saveVariable(studentId, currVal+1);
+                            
+                        } else if(document.getElementById(parentId).checked) {
+                            let currVal = WA.state.loadVariable(parentId);
+                            WA.state.saveVariable(parentId, currVal+1);
 
-                    } else if(document.getElementById(studentId).checked) {
-                        let currVal = WA.state.loadVariable(studentId);
-                        WA.state.saveVariable(studentId, currVal+1)
-                        
-                    } else if(document.getElementById(parentId).checked) {
-                        let currVal = WA.state.loadVariable(parentId);
-                        WA.state.saveVariable(parentId, currVal+1)
+                        } else if(document.getElementById(teacherId).checked) {
+                            let currVal = WA.state.loadVariable(teacherId);
+                            WA.state.saveVariable(teacherId, currVal+1);
 
-                    } else if(document.getElementById(teacherId).checked) {
-                        let currVal = WA.state.loadVariable(teacherId);
-                        WA.state.saveVariable(teacherId, currVal+1)
+                        } else if(document.getElementById(jobConsId).checked) {
+                            let currVal = WA.state.loadVariable(jobConsId);
+                            WA.state.saveVariable(jobConsId, currVal+1);
 
-                    } else if(document.getElementById(jobConsId).checked) {
-                        let currVal = WA.state.loadVariable(jobConsId);
-                        WA.state.saveVariable(jobConsId, currVal+1)
+                        } else if(document.getElementById(otherId).checked) {
+                            let currVal = WA.state.loadVariable(otherId);
+                            WA.state.saveVariable(otherId, currVal+1);
 
-                    } else if(document.getElementById(otherId).checked) {
-                        let currVal = WA.state.loadVariable(otherId);
-                        WA.state.saveVariable(otherId, currVal+1)
+                        } else if(document.getElementById(noneId).checked) {
+                            let currVal = WA.state.loadVariable(noneId);
+                            WA.state.saveVariable(noneId, currVal+1);
+                            console.log("currVal: " + currVal);
+                        } else {
 
-                    } else if(document.getElementById(noneId).checked) {
-                        let currVal = WA.state.loadVariable(noneId);
-                        console.log("none: " + currVal)
-                        WA.state.saveVariable(noneId, currVal+1)
-                    } else {
+                        }
+                        const cowebsites = await WA.nav.getCowebSites();
+                        console.log("cowebsites: " + cowebsites)
+                        //WA.nav.goToPage("https://buenni86.github.io/hm-station/userpoll_fin.html");
 
-                    }
-
+                    }).catch((e) => console.error(e));                    
                 }
             </script>
         </div>

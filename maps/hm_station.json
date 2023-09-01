@@ -6531,14 +6531,14 @@
                      "fontfamily":"Press Start 2P",
                      "halign":"center",
                      "pixelsize":35,
-                     "text":"Hauptb\u00fchne",
+                     "text":"Networking Lounge",
                      "wrap":true
                     },
                  "type":"",
                  "visible":true,
-                 "width":351.031,
-                 "x":1729.81783333333,
-                 "y":1492.85156666667
+                 "width":597.031,
+                 "x":1619.81783333333,
+                 "y":1491.85156666667
                 }, 
                 {
                  "height":35.6302,
@@ -7634,10 +7634,15 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"https:\/\/buenni86.github.io\/hm-station\/userpoll.html"
+                         "value":"{{\/enableUserPoll}}https:\/\/buenni86.github.io\/hm-station\/userpoll.html{{\/enableUserPoll}}"
+                        }, 
+                        {
+                         "name":"openWebsiteAllowApi",
+                         "type":"bool",
+                         "value":true
                         }],
                  "rotation":0,
-                 "type":"area",
+                 "type":"",
                  "visible":true,
                  "width":1100.67,
                  "x":1354.665,
@@ -7900,6 +7905,44 @@
                  "width":0,
                  "x":3100,
                  "y":585.333333333333
+                }, 
+                {
+                 "height":0,
+                 "id":137,
+                 "name":"enableUserPoll",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"label",
+                         "type":"string",
+                         "value":"Umfrage aktivieren"
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"readableBy",
+                         "type":"string",
+                         "value":"editor"
+                        }, 
+                        {
+                         "name":"writeableBy",
+                         "type":"string",
+                         "value":"editor"
+                        }],
+                 "rotation":0,
+                 "type":"variable",
+                 "visible":true,
+                 "width":0,
+                 "x":1557,
+                 "y":2505
                 }],
          "opacity":1,
          "properties":[
@@ -10220,7 +10263,7 @@
          "y":0
         }],
  "nextlayerid":129,
- "nextobjectid":137,
+ "nextobjectid":138,
  "orientation":"orthogonal",
  "properties":[
         {
