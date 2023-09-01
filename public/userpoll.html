@@ -44,6 +44,9 @@
                     let otherId = "other";
                     let noneId = "none";
 
+                    
+                    WA.nav.goToPage("https://buenni86.github.io/hm-station/userpoll_fin.html");
+
                     if(document.getElementById(schoolId).checked) {
                         let currVal = WA.state.loadVariable(schoolId);
                         WA.state.saveVariable(schoolId, currVal+1)
@@ -70,13 +73,12 @@
 
                     } else if(document.getElementById(noneId).checked) {
                         let currVal = WA.state.loadVariable(noneId);
+                        console.log("none: " + currVal)
                         WA.state.saveVariable(noneId, currVal+1)
-                        console.log("none: " + currVal+1)
                     } else {
 
                     }
 
-                    window.close();
                 }
             </script>
         </div>
