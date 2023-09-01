@@ -578,12 +578,48 @@ WA.ui.actionBar.addButton({
     }
 })
 
+const contactForms = new Map ([
+    ["contact1", "popUpContact1"],
+    ["contact2", "popUpContact2"],
+    ["contact3", "popUpContact3"],
+    ["contact4", "popUpContact4"],
+    ["contact5", "popUpContact5"],
+])
+
+var msgContact = "Persönliche Beratung gewünscht? Hinterlasse hier deine Kontaktdaten!";
+var labelContact = "Kontaktformular öffnen";
+var urlContact = "https://dbgroup.avature.net/levelup";
+
 WA.onInit().then(async () => {
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra()
     .then(() => {
         console.log("Scripting API Extra ready")        
     }).catch(e => console.error(e))
+
+    for (const contactArea of contactForms.keys()) {
+        WA.room.area.onEnter(contactArea).subscribe(() => {
+            currentPopup = WA.ui.openPopup(contactForms.get(contactArea), msgContact,[
+                {
+                    label: labelContact,
+                    callback: (popup => {
+                        WA.nav.openTab(urlContact);
+                        closePopUp(currentPopup);
+                    })
+                },
+                {
+                    label: labelClose,
+                    callback: (popup => {
+                        closePopUp(currentPopup);
+                        //popup.close();
+                    })
+                }]);
+        })
+    
+        WA.room.area.onLeave(contactArea).subscribe(() => {
+            closePopUp(currentPopup);
+        })
+    }
 
 /*    var playerHasPolled = await WA.player.state.hasPolled;
     console.log("Player has polled: ", playerHasPolled);
@@ -610,7 +646,8 @@ WA.onInit().then(async () => {
     WA.room.onEnterLayer(layerVoteAcq).subscribe(() => {
         WA.state.voteAcquisition++
         init2ndRoom();
-    })    
+    })
+
     WA.room.onLeaveLayer(layerVoteAcq).subscribe(() => {
         if (WA.state.voteAcquisition === 0) return
     })
