@@ -7419,7 +7419,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/src\/tutorial.html"
+                         "value":"https:\/\/buenni86.github.io\/hm-station\/tutorial.html"
                         }],
                  "rotation":0,
                  "type":"area",
@@ -7634,7 +7634,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/src\/userpoll.html"
+                         "value":"https:\/\/buenni86.github.io\/hm-station\/userpoll.html"
                         }],
                  "rotation":0,
                  "type":"area",
