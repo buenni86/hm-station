@@ -594,32 +594,32 @@ WA.onInit().then(async () => {
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra()
     .then(() => {
-        console.log("Scripting API Extra ready")        
+        console.log("Scripting API Extra ready")   
+        
+        for (const contactArea of contactForms.keys()) {
+            WA.room.area.onEnter(contactArea).subscribe(() => {
+                currentPopup = WA.ui.openPopup(contactForms.get(contactArea), msgContact,[
+                    {
+                        label: labelContact,
+                        callback: (popup => {
+                            WA.nav.openTab(urlContact);
+                            closePopUp(currentPopup);
+                        })
+                    },
+                    {
+                        label: labelClose,
+                        callback: (popup => {
+                            closePopUp(currentPopup);
+                            //popup.close();
+                        })
+                    }]);
+            })
+        
+            WA.room.area.onLeave(contactArea).subscribe(() => {
+                closePopUp(currentPopup);
+            })
+        }     
     }).catch(e => console.error(e))
-
-    for (const contactArea of contactForms.keys()) {
-        WA.room.area.onEnter(contactArea).subscribe(() => {
-            currentPopup = WA.ui.openPopup(contactForms.get(contactArea), msgContact,[
-                {
-                    label: labelContact,
-                    callback: (popup => {
-                        WA.nav.openTab(urlContact);
-                        closePopUp(currentPopup);
-                    })
-                },
-                {
-                    label: labelClose,
-                    callback: (popup => {
-                        closePopUp(currentPopup);
-                        //popup.close();
-                    })
-                }]);
-        })
-    
-        WA.room.area.onLeave(contactArea).subscribe(() => {
-            closePopUp(currentPopup);
-        })
-    }
 
 /*    var playerHasPolled = await WA.player.state.hasPolled;
     console.log("Player has polled: ", playerHasPolled);

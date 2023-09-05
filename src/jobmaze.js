@@ -3,21 +3,31 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 //bootstrapExtra();
 console.log('Script started successfully');
 
+let currentPopup = undefined;
+
+var btnImageResetUrl = "https://buenni86.github.io/hm-station/reset_logo.png";
+var btnImageBackUrl = "https://buenni86.github.io/hm-station/back_logo.png";
+var btnImageFwdUrl = "https://buenni86.github.io/hm-station/fwd_logo.png";
+var btnImageStopUrl = "https://buenni86.github.io/hm-station/mainmap_logo.png";
+
+var leavingUrl = "../dbevents/hm-bahnhof#specialZones/enterFromLabyrinth";
+var resetUrl = "../dbevents/hm-joblabyrinth";
+
 // adding map navigation buttons
 WA.ui.actionBar.addButton({
     id:"reset",
     type:"action",
-    imageSrc:"https://buenni86.github.io/hm-station/reset_logo.png",
+    imageSrc:btnImageResetUrl,
     toolTip:"Zurück zum Start",
     callback: async () => {
-        WA.nav.goToRoom("../dbevents/hm-joblabyrinth");
+        WA.nav.goToRoom(resetUrl);
     }
 })
 
 WA.ui.actionBar.addButton({
     id:"back",
     type:"action",
-    imageSrc:"https://buenni86.github.io/hm-station/back_logo.png",
+    imageSrc:btnImageBackUrl,
     toolTip:"Bring mich zurück zur letzten Plattform",
     callback: async () => {
         goToLastPlatform();
@@ -27,7 +37,7 @@ WA.ui.actionBar.addButton({
 WA.ui.actionBar.addButton({
     id:"forward",
     type:"action",
-    imageSrc:"https://buenni86.github.io/hm-station/fwd_logo.png",
+    imageSrc:btnImageFwdUrl,
     toolTip:"Bring mich zur nächsten Plattform",
     callback: async () => {
         goToNextPlatform();
@@ -37,18 +47,73 @@ WA.ui.actionBar.addButton({
 WA.ui.actionBar.addButton({
     id:"stop",
     type:"action",
-    imageSrc:"https://buenni86.github.io/hm-station/mainmap_logo.png",
+    imageSrc:btnImageStopUrl,
     toolTip:"Keine Lust mehr - bring mich zurück zur Hauptmap",
     callback: async () => {
-        WA.nav.goToRoom("../dbevents/hm-bahnhof#specialZones/enterFromLabyrinth");
+        WA.nav.goToPage(leavingUrl);
     }
 })
+
+const leavingZones = new Map ([
+    ["popUpArea0", "popUp0"],
+    ["popUpArea1", "popUp1"],
+    ["popUpArea2", "popUp2"],
+    ["popUpArea3", "popUp3"],
+    ["popUpArea4", "popUp4"],
+    ["popUpArea5", "popUp5"],    
+    ["popUpArea6", "popUp6"],
+    ["popUpArea7", "popUp7"],
+    ["popUpArea8", "popUp8"],
+    ["popUpArea9", "popUp9"],
+    ["popUpArea10", "popUp10"],
+    ["popUpArea11", "popUp11"],
+    ["popUpArea12", "popUp22"],
+    ["popUpArea13", "popUp13"],
+    ["popUpArea14", "popUp14"],
+    ["popUpArea15", "popUp15"],
+])
+
+var msgLeaving = "Möchtest du das Labyrinth verlassen?";
+var labelYes = "Ja";
+var labelNo = "Nein";
+
+function closePopUp(){
+    if (currentPopup !== undefined) {
+        currentPopup.close();
+        currentPopup = undefined;
+    }
+}
 
 WA.onInit().then(async () => {
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra()
     .then(() => {
         console.log("Scripting API Extra ready")
+
+        for (const leavingArea of leavingZones.keys()) {
+            WA.room.area.onEnter(leavingArea).subscribe(() => {
+                currentPopup = WA.ui.openPopup(leavingZones.get(leavingArea), msgLeaving, [
+                    {
+                        label: labelYes,
+                        callback: (popup => {
+                            WA.nav.goToPage(leavingUrl);
+                            closePopUp(currentPopup);
+                        })
+                    },
+                    {
+                        label: labelNo,
+                        callback: (popup => {
+                            closePopUp(currentPopup);
+                        })
+                    }
+                ])
+            })
+
+            WA.room.area.onLeave(leavingArea).subscribe(() => {
+                closePopUp(currentPopup);
+            })
+        }
+
     }).catch(e => console.error(e))
 }).catch(e => console.error(e))
 
@@ -123,17 +188,6 @@ function goToNextPlatform() {
     }
 }
 
-/*
-WA.room.area.onLeave("1").subscribe(() => {
-    setLastPlayerPos();
-    setNextPlatformPos("1");
-})
-
-WA.room.area.onEnter("1").subscribe(() => {
-    setLastPlayerPos();
-    setNextPlatformPos("1");
-})
-*/
 
 function updateCam() {
     const subscription = WA.camera.onCameraUpdate().subscribe((worldView) => console.log(worldView));
