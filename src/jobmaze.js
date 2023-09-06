@@ -10,7 +10,7 @@ var btnImageBackUrl = "https://buenni86.github.io/hm-station/back_logo.png";
 var btnImageFwdUrl = "https://buenni86.github.io/hm-station/fwd_logo.png";
 var btnImageStopUrl = "https://buenni86.github.io/hm-station/mainmap_logo.png";
 
-var leavingUrl = "../dbevents/hm-bahnhof#specialZones/enterFromLabyrinth";
+var leavingUrl = "https://play.workadventu.re/@/db-systel/dbevents/hm-bahnhof#specialZones/enterFromLabyrinth";
 var resetUrl = "../dbevents/hm-joblabyrinth";
 
 // adding map navigation buttons
