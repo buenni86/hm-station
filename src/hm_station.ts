@@ -316,7 +316,7 @@ WA.onInit().then(() => {
                     label: labelDo,
                     callback: (popup => {
                         popup.close();
-                        currentPopup = undefined;
+                        doVotingPopup = undefined;
                         WA.player.state.hasVoted = true;    // players shall only vote once
                         init1stRoom();
                         WA.nav.goToRoom(url1stRoom);
@@ -326,7 +326,7 @@ WA.onInit().then(() => {
                     label: labelDont,
                     callback: (popup => {
                         popup.close();
-                        currentPopup = undefined;
+                        doVotingPopup = undefined;
                     })
             }]);
         }    
