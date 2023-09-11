@@ -71,7 +71,7 @@ var layerOpenExit = "specialZones/voting/openExit_auto";
 
 var layerReset = "specialZones/voteReset";
 
-var urlPolling = "../src/worldmap.html";
+//var urlPolling = "../src/worldmap.html";
 
 var layerTime = "popUpTime";
 var popUpTime = "time";
