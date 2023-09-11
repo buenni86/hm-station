@@ -3298,7 +3298,7 @@
         {
          "name":"mapImage",
          "type":"string",
-         "value":".\/maps\/jobmaze.png"
+         "value":".\/jobmaze.png"
         }, 
         {
          "name":"mapName",
@@ -3308,7 +3308,7 @@
         {
          "name":"script",
          "type":"string",
-         "value":"..\/src\/jobmaze.js"
+         "value":".\/src\/jobmaze.ts"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
@@ -3317,7 +3317,7 @@
         {
          "columns":33,
          "firstgid":1,
-         "image":"..\/tilesets\/dbs_terrain.png",
+         "image":"tilesets\/dbs_terrain.png",
          "imageheight":832,
          "imagewidth":1056,
          "margin":0,
@@ -3330,7 +3330,7 @@
         {
          "columns":31,
          "firstgid":859,
-         "image":"..\/tilesets\/symbols.png",
+         "image":"tilesets\/symbols.png",
          "imageheight":992,
          "imagewidth":992,
          "margin":0,
@@ -3353,7 +3353,7 @@
         {
          "columns":59,
          "firstgid":1820,
-         "image":"..\/tilesets\/dbs_floors.png",
+         "image":"tilesets\/dbs_floors.png",
          "imageheight":1024,
          "imagewidth":1888,
          "margin":0,
@@ -3366,7 +3366,7 @@
         {
          "columns":87,
          "firstgid":3708,
-         "image":"..\/tilesets\/dbs_walls.png",
+         "image":"tilesets\/dbs_walls.png",
          "imageheight":1888,
          "imagewidth":2784,
          "margin":0,
@@ -3379,7 +3379,7 @@
         {
          "columns":128,
          "firstgid":8841,
-         "image":"..\/tilesets\/dbs_decoration.png",
+         "image":"tilesets\/dbs_decoration.png",
          "imageheight":1248,
          "imagewidth":4096,
          "margin":0,
@@ -5893,7 +5893,7 @@
         {
          "columns":16,
          "firstgid":13833,
-         "image":"..\/tilesets\/decorations-medieval.png",
+         "image":"tilesets\/decorations-medieval.png",
          "imageheight":2048,
          "imagewidth":512,
          "margin":0,
@@ -6035,7 +6035,7 @@
         {
          "columns":32,
          "firstgid":14857,
-         "image":"..\/tilesets\/LPC-terrains-subimissions-outside.png",
+         "image":"tilesets\/LPC-terrains-subimissions-outside.png",
          "imageheight":1024,
          "imagewidth":1024,
          "margin":0,
@@ -6048,7 +6048,7 @@
         {
          "columns":65,
          "firstgid":15881,
-         "image":"..\/tilesets\/dbs_furniture.png",
+         "image":"tilesets\/dbs_furniture.png",
          "imageheight":1472,
          "imagewidth":2080,
          "margin":0,
@@ -6982,7 +6982,7 @@
         {
          "columns":76,
          "firstgid":18871,
-         "image":"..\/tilesets\/dbs_db_stuff.png",
+         "image":"tilesets\/dbs_db_stuff.png",
          "imageheight":864,
          "imagewidth":2432,
          "margin":0,
@@ -6995,7 +6995,7 @@
         {
          "columns":32,
          "firstgid":20923,
-         "image":"..\/tilesets\/LPC-submissions-outside.png",
+         "image":"tilesets\/LPC-submissions-outside.png",
          "imageheight":1024,
          "imagewidth":1024,
          "margin":0,
