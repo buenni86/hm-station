@@ -7043,7 +7043,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/src\/customStationSign\/web_station_sign.html"
+                         "value":".\/src\/customStationSign\/web_station_sign.html"
                         }],
                  "rotation":0,
                  "type":"area",
@@ -7206,7 +7206,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/src\/customStationSign\/web_station_sign.html"
+                         "value":".\/src\/customStationSign\/web_station_sign.html"
                         }, 
                         {
                          "name":"silent",
@@ -7228,7 +7228,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/src\/customStationSign\/web_station_sign.html"
+                         "value":".\/src\/customStationSign\/web_station_sign.html"
                         }, 
                         {
                          "name":"silent",
@@ -7250,7 +7250,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/src\/customStationSign\/web_station_sign.html"
+                         "value":".\/src\/customStationSign\/web_station_sign.html"
                         }, 
                         {
                          "name":"silent",
@@ -7469,7 +7469,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/src\/customStationSign\/web_station_sign.html"
+                         "value":".\/src\/customStationSign\/web_station_sign.html"
                         }, 
                         {
                          "name":"silent",
@@ -7491,7 +7491,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"..\/src\/customStationSign\/web_station_sign.html"
+                         "value":".\/src\/customStationSign\/web_station_sign.html"
                         }, 
                         {
                          "name":"silent",
