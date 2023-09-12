@@ -578,7 +578,7 @@ function init1stRoom() {
     WA.room.showLayer(roofLayerMain);
     WA.room.showLayer(openRoofLayer1);
 
-    if (currentPopup != null) closePopUp(currentPopup)
+    closePopUp(currentPopup);
 
     currentPopup =  WA.ui.openPopup(popUpImportance, msgImportance,[
         {
@@ -608,10 +608,9 @@ function init2ndRoom() {
     WA.room.hideLayer(openRoofLayer1);
     WA.room.hideLayer(roofLayer2);
 
+    closePopUp(currentPopup);
     // enter next room
     WA.nav.goToRoom(url2ndRoom);
-
-    if (currentPopup != null) closePopUp(currentPopup)
 
     currentPopup =  WA.ui.openPopup(popUpImportanceResult, msgImportanceResult,[
         {
@@ -641,10 +640,9 @@ function init3rdRoom() {
     WA.room.hideLayer(openRoofLayer2);
     WA.room.hideLayer(roofLayer3);
     
+    closePopUp(currentPopup)
     // enter next room
     WA.nav.goToRoom(url3rdRoom);
-
-    if (currentPopup != null) closePopUp(currentPopup)
 
     currentPopup =  WA.ui.openPopup(popUpJobLocation, msgJobLocation,[
     {
@@ -674,10 +672,9 @@ function init4thRoom() {
     WA.room.hideLayer(openRoofLayer3);
     WA.room.hideLayer(roofLayer4);
     
+    closePopUp(currentPopup)
     // enter next room
     WA.nav.goToRoom(url4thRoom);
-
-    if (currentPopup != null) closePopUp(currentPopup)
 
     currentPopup = WA.ui.openPopup(popUpJobLocationResult, msgJobLocationResult,[
     {
