@@ -306,17 +306,19 @@ WA.onInit().then(() => {
     })
     
     WA.room.onLeaveLayer(layerDoVoting).subscribe(() => {
-        closePopUp(doVotingPopup);
+        //closePopUp(doVotingPopup);
+        closePopUp(currentPopup);
     })
     
     WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
         if (!WA.player.state.hasVoted) {
-            doVotingPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
+            //doVotingPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
+            currentPopup = WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
                 {
                     label: labelDo,
                     callback: (popup => {
                         popup.close();
-                        doVotingPopup = undefined;
+                        currentPopup = undefined;
                         WA.player.state.hasVoted = true;    // players shall only vote once
                         init1stRoom();
                         WA.nav.goToRoom(url1stRoom);
@@ -326,7 +328,7 @@ WA.onInit().then(() => {
                     label: labelDont,
                     callback: (popup => {
                         popup.close();
-                        doVotingPopup = undefined;
+                        currentPopup = undefined;
                     })
             }]);
         }    
@@ -578,7 +580,7 @@ function init1stRoom() {
     WA.room.showLayer(roofLayerMain);
     WA.room.showLayer(openRoofLayer1);
 
-    closePopUp(currentPopup);
+    //closePopUp(currentPopup);
 
     currentPopup =  WA.ui.openPopup(popUpImportance, msgImportance,[
         {
