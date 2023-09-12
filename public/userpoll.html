@@ -31,10 +31,14 @@
                 <label for="other">Anderes</label><br>
                 <input type="radio" id="none" name="status" value="none">
                 <label for="none">keine Angabe</label><br><br><br>
-                <input type="button" value="Absenden" onclick="savePollResult()">
+                <input type="button" disabled="disabled" value="Absenden" onclick="savePollResult(), this.disabled=true;">
             </form>
 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
             <script>
+                $("input:radio").change(function () {$("input:button").prop("disabled", false);});
+                $("input:button").click(function () {$("input:radio").prop("disabled", true)});
+
                 async function savePollResult() {
                     let schoolId = "school";
                     let studentId = "student";
@@ -44,7 +48,8 @@
                     let otherId = "other";
                     let noneId = "none";
 
-                    WA.onInit().tehn(async () => {
+                    WA.onInit().then(async () => {
+                    
                         if(document.getElementById(schoolId).checked) {
                             let currVal = WA.state.loadVariable(schoolId);
                             WA.state.saveVariable(schoolId, currVal+1);
@@ -76,9 +81,9 @@
                         } else {
 
                         }
-                        const cowebsites = await WA.nav.getCowebSites();
-                        console.log("cowebsites: " + cowebsites)
-                        //WA.nav.goToPage("https://buenni86.github.io/hm-station/userpoll_fin.html");
+                        
+                        const coWebsites = await WA.nav.getCoWebSites();
+                        coWebsites[1].close();
 
                     }).catch((e) => console.error(e));                    
                 }
