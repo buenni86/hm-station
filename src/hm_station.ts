@@ -5,7 +5,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 console.log('Script started successfully');
 
 let currentPopup: any = undefined;
-//let doVotingPopup: any = undefined;
+let doVotingPopup: any = undefined;
 var currentWebsite: any = undefined;
 
 var labelClose = "Schließen";
@@ -306,19 +306,17 @@ WA.onInit().then(() => {
     })
     
     WA.room.onLeaveLayer(layerDoVoting).subscribe(() => {
-        //closePopUp(doVotingPopup);
-        closePopUp(currentPopup);
+        closePopUp(doVotingPopup);
     })
     
     WA.room.onEnterLayer(layerDoVoting).subscribe(() => {
         if (!WA.player.state.hasVoted) {
-            //doVotingPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
-            currentPopup = WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
+            doVotingPopup =  WA.ui.openPopup(popUpDoVoting, msgDoVoting,[
                 {
                     label: labelDo,
                     callback: (popup => {
                         popup.close();
-                        currentPopup = undefined;
+                        doVotingPopup = undefined;
                         WA.player.state.hasVoted = true;    // players shall only vote once
                         init1stRoom();
                     })
@@ -327,7 +325,7 @@ WA.onInit().then(() => {
                     label: labelDont,
                     callback: (popup => {
                         popup.close();
-                        currentPopup = undefined;
+                        doVotingPopup = undefined;
                     })
             }]);
         }    
