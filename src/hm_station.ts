@@ -321,7 +321,6 @@ WA.onInit().then(() => {
                         currentPopup = undefined;
                         WA.player.state.hasVoted = true;    // players shall only vote once
                         init1stRoom();
-                        WA.nav.goToRoom(url1stRoom);
                     })
                 },
                 {
@@ -580,7 +579,9 @@ function init1stRoom() {
     WA.room.showLayer(roofLayerMain);
     WA.room.showLayer(openRoofLayer1);
 
-    //closePopUp(currentPopup);
+    closePopUp(currentPopup);
+    // enter next room
+    WA.nav.goToRoom(url1stRoom);
 
     currentPopup =  WA.ui.openPopup(popUpImportance, msgImportance,[
         {
