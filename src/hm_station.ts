@@ -5,7 +5,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 console.log('Script started successfully');
 
 let currentPopup: any = undefined;
-let doVotingPopup: any = undefined;
+//let doVotingPopup: any = undefined;
 var currentWebsite: any = undefined;
 
 var labelClose = "Schließen";
