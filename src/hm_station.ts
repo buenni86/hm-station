@@ -332,12 +332,8 @@ WA.onInit().then(() => {
         }    
     })
 
-    // voting areas
-    let currStateVal: number;
-
     WA.room.onEnterLayer(layerVoteAcq).subscribe(() => {
-        currStateVal = Number(WA.state.voteAcquisition);
-        WA.state.voteAcquisition = currStateVal++;
+        WA.state.voteAcquisition = addOneDigit(WA.state.voteAcquisition);
         init2ndRoom();
     })
 
@@ -346,8 +342,7 @@ WA.onInit().then(() => {
     })
 
     WA.room.onEnterLayer(layerVoteMoney).subscribe(() => {
-        currStateVal = Number(WA.state.voteMoney);
-        WA.state.voteMoney = currStateVal++;
+        WA.state.voteMoney = addOneDigit(WA.state.voteMoney);
         init2ndRoom();
     })    
     WA.room.onLeaveLayer(layerVoteMoney).subscribe(() => {
@@ -355,8 +350,7 @@ WA.onInit().then(() => {
     })
 
     WA.room.onEnterLayer(layerVoteTicket).subscribe(() => {
-        currStateVal = Number(WA.state.voteTicket);
-        WA.state.voteTicket = currStateVal++;
+        WA.state.voteTicket = addOneDigit(WA.state.voteTicket);
         init2ndRoom();
     })
     WA.room.onLeaveLayer(layerVoteTicket).subscribe(() => {
@@ -368,8 +362,7 @@ WA.onInit().then(() => {
     })
 
     WA.room.onEnterLayer(layerVoteOffice).subscribe(() => {
-        currStateVal = Number(WA.state.voteOffice);
-        WA.state.voteOffice = currStateVal++;
+        WA.state.voteOffice = addOneDigit(WA.state.voteOffice);
         init4thRoom();
     })
     WA.room.onLeaveLayer(layerVoteOffice).subscribe(() => {
@@ -377,8 +370,7 @@ WA.onInit().then(() => {
     })
     
     WA.room.onEnterLayer(layerVoteTrain).subscribe(() => {
-        currStateVal = Number(WA.state.voteTrain)
-        WA.state.voteTrain = currStateVal++;
+        WA.state.voteTrain = addOneDigit(WA.state.voteTrain);
         init4thRoom();
     })
     WA.room.onLeaveLayer(layerVoteTrain).subscribe(() => {
@@ -386,8 +378,7 @@ WA.onInit().then(() => {
     })
     
     WA.room.onEnterLayer(layerVoteWorkshop).subscribe(() => {
-        currStateVal = Number(WA.state.voteWorkshop);
-        WA.state.voteWorkshop = currStateVal++;
+        WA.state.voteWorkshop = addOneDigit(WA.state.voteWorkshop);
         init4thRoom();
     })
     WA.room.onLeaveLayer(layerVoteWorkshop).subscribe(() => {
@@ -395,8 +386,7 @@ WA.onInit().then(() => {
     })
     
     WA.room.onEnterLayer(layerVoteOutside).subscribe(() => {
-        currStateVal = Number(WA.state.voteOutside);
-        WA.state.voteOutside = currStateVal++;
+        WA.state.voteOutside = addOneDigit(WA.state.voteOutside);
         init4thRoom();
     })
     WA.room.onLeaveLayer(layerVoteOutside).subscribe(() => {
@@ -551,6 +541,14 @@ var openRoofLayer1 = "voting_top_opened/room1";
 var openRoofLayer2 = "voting_top_opened/room2";
 var openRoofLayer3 = "voting_top_opened/room3";
 var openRoofLayer4 = "voting_top_opened/room4";
+
+function addOneDigit(currVal: unknown) {
+    if (typeof currVal !== 'number') {
+        return;
+    } else {
+        return currVal + 1;
+    }
+}
 
 function abortVoting() {    
     WA.room.hideLayer(roofLayerMain);
