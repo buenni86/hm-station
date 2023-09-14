@@ -6763,14 +6763,14 @@
                      "fontfamily":"Press Start 2P",
                      "halign":"center",
                      "pixelsize":24,
-                     "text":"Count Together",
+                     "text":"Bubble Woods",
                      "wrap":true
                     },
                  "type":"",
                  "visible":true,
-                 "width":345.698,
-                 "x":868.151,
-                 "y":1919.1849
+                 "width":296.698,
+                 "x":896.484333333333,
+                 "y":1922.51823333333
                 }, 
                 {
                  "height":29.6302,
@@ -7306,7 +7306,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"https:\/\/v6p9d9t4.ssl.hwcdn.net\/html\/3984492\/CountTogether0.13(Web)Standard\/index.html"
+                         "value":"https:\/\/gamesnacks.com\/embed\/games\/bubblewoods4"
                         }],
                  "rotation":0,
                  "type":"area",
