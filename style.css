@@ -15,6 +15,15 @@ a {
     color: #061350;
 }
 
+table {
+    Color: whitesmoke;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+}
+
 .content-width {
     max-width: 80%;
     width: calc(100% - 4rem);

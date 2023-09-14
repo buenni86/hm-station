@@ -49,6 +49,8 @@
                     let noneId = "none";
 
                     WA.onInit().then(async () => {
+
+                        WA.player.state.hasPolled = true;
                     
                         if(document.getElementById(schoolId).checked) {
                             let currVal = WA.state.loadVariable(schoolId);
