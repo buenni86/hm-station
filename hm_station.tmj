@@ -6391,6 +6391,23 @@
                  "width":272.973,
                  "x":3550.5135,
                  "y":1429.5
+                }, 
+                {
+                 "height":152.666333333334,
+                 "id":144,
+                 "name":"userpollResult",
+                 "properties":[
+                        {
+                         "name":"allowApi",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":277.667,
+                 "x":2178.49983333333,
+                 "y":2203.3335
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -7665,17 +7682,12 @@
                  "name":"userpoll",
                  "properties":[
                         {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":".\/userpoll.html"
-                        }, 
-                        {
                          "name":"openWebsiteAllowApi",
                          "type":"bool",
                          "value":true
                         }],
                  "rotation":0,
-                 "type":"",
+                 "type":"area",
                  "visible":true,
                  "width":1100.67,
                  "x":1354.665,
@@ -10255,7 +10267,7 @@
          "y":0
         }],
  "nextlayerid":129,
- "nextobjectid":144,
+ "nextobjectid":145,
  "orientation":"orthogonal",
  "properties":[
         {

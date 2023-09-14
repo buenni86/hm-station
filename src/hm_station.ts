@@ -71,8 +71,6 @@ var layerOpenExit = "specialZones/voting/openExit_auto";
 
 var layerReset = "specialZones/voteReset";
 
-//var urlPolling = "../src/worldmap.html";
-
 var layerTime = "popUpTime";
 var popUpTime = "time";
 var msgTime = "Wusstest du eigentlich, dass du bei der Bahn immer geregelte Arbeitszeiten hast?";
@@ -106,6 +104,7 @@ WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ',WA.player.tags)
 
+    processUserPoll();
     processPopUpArea();
 
     WA.room.onLeaveLayer(layerTime).subscribe(() => {
@@ -710,6 +709,17 @@ const contactPopUpArea = new Map ([
     ["contact4", "popUpContact4"],
     ["contact5", "popUpContact5"],
 ])
+
+var urlPolling = "../userpoll.html";
+var hasPlayerPolled;
+
+async function processUserPoll() {
+    hasPlayerPolled = await WA.player.state.hasPolled;
+
+    if (!hasPlayerPolled) {
+        WA.nav.openCoWebSite(urlPolling, true);
+    }
+}
 
 var msgContact = "Persönliche Beratung gewünscht? Hinterlasse hier deine Kontaktdaten!";
 var labelContact = "Kontaktformular öffnen";
