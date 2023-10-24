@@ -6401,6 +6401,11 @@
                          "name":"allowApi",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"url",
+                         "type":"string",
+                         "value":".\/src\/result_userpoll.html"
                         }],
                  "rotation":0,
                  "type":"website",
